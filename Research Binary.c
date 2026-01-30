@@ -11,7 +11,7 @@
         v[i] = valor * i;
        }
        for (int i = 0; i < tam; i++){
-           printf("\nO valor: %i", v[i]);
+           printf(" | %i", v[i]);
        }
  }
  
