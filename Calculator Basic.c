@@ -71,7 +71,7 @@
     switch (opc){
         
      case 1:
-         somar();
+         somar(); 
          break;
          
      case 2:
