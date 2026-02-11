@@ -1,10 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <inttypes.h>
-
-// definir constantes para facilitar a codificação
-//inditificação e pré definição de matrizes e vetores
 
 #define linha 2
 #define lin 2
@@ -13,40 +11,39 @@
 #define MOSTRAR_FICHA(u) printf("\n Nome: %s | Idade: %d | Salario: %.3f | Email: %s\n", u.Nome, u.Idade, u.Salario, u.Email)
 
 
- typedef struct Ficha{
+ /*typedef struct Ficha{
     
     int Idade;
     float Salario;
     char Nome[10], Email[50];
     
   };
-// Criando um sistema de cadastro - empresa virtual
-// Guardar usuários, serviços da empresa e respostas automáticas
-// Soma de valores - Calculadora de preços
-// Usando comandos básicos e ampliando conforme o conhecimento 
-
+*/
   struct Usuario {
     int Idade;
     char Senha[20];
     char Nome[20], email[50], CPF[11];
-};
+ };
 
  struct Usuario login;
+
  
  void inicio() {
-    int i;
     char email[50];
+    char senha[20];
 
-        printf("\nFaça o seu login: ");
-      
+        printf("\nFaca o seu login: ");
         printf("\nEmail: ");
         scanf("%s", email);
-         
-         if (strcmp(email, login.email) ==0){
+        printf("\nDigite a senha: ");
+        scanf("%s", senha);       
+
+         //validação de e-mail & senha
+         if (strcmp(email, login.email) && (senha, login.Senha) ){
              printf("Login realizado com sucesso!");
          }
           else{
-              printf("E-mail inválido - Digite novamente!");
+              printf("e-mail ou senha invalido - tente novamente!");
           }
         
 }
@@ -57,8 +54,13 @@ void cadastro(){
        printf("E-mail: ");
        scanf("%s", login.email);
        
-       printf("CPF (apenas números) : ");
+       printf("CPF (apenas numeros) : ");
        scanf("%11s", login.CPF);
+
+       printf("Crie uma senha(max 20): ");
+       scanf("%20s", login.Senha);
+       system("cls");
+
 }
 
 void MenuPrincipal() { 
@@ -66,7 +68,7 @@ void MenuPrincipal() {
   int opc;
 
    printf("\n");
-   printf(" Bem Vindo á nossa Assistente Virtual!! 😊 ");
+   printf(" Bem Vindo a nossa Assistente Virtual!! 😊 ");
    printf("\n");
    
    printf("\n Escolha uma opção para podemos te ajudar: \n");
@@ -106,7 +108,7 @@ void MenuPrincipal() {
      break;
      
      default:
-     printf(" Opção inválida - Digite novamente ");
+     printf(" Opção invalida - Digite novamente ");
      
    }
 }
