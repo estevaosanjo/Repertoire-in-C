@@ -8,14 +8,13 @@
 #define lin 2
 #define coluna 12
 #define tam 20
-#define MOSTRAR_FICHA(u) printf("\n Nome: %s | Idade: %d | Salario: %.3f | Email: %s\n", u.Nome, u.Idade, u.Salario, u.Email)
+#define MOSTRAR_FICHA(login) printf("\n Nome: %s | Idade: %d | CPF: %11s | Email: %s\n", login.Nome, login.Idade, login.CPF, login.email)
 
 
  /*typedef struct Ficha{
     
     int Idade;
-    float Salario;
-    char Nome[10], Email[50];
+    char Nome[10], Email[50], CPF[11], Senha[20];
     
   };
 */
@@ -27,8 +26,9 @@
 
  struct Usuario login;
 
+
  
- void inicio() {
+ void validacaoLogin() {
     char email[50];
     char senha[20];
 
@@ -37,31 +37,43 @@
         scanf("%s", email);
         printf("\nDigite a senha: ");
         scanf("%s", senha);       
+        printf("\n");
 
          //validação de e-mail & senha
-         if (strcmp(email, login.email) && (senha, login.Senha) ){
+         if (strcmp(email, login.email)== 0 && strcmp(senha, login.Senha) == 0){
              printf("Login realizado com sucesso!");
+             MOSTRAR_FICHA(login);
          }
           else{
               printf("e-mail ou senha invalido - tente novamente!");
           }
         
-}
-
+};
 
 void cadastro(){
-    
-       printf("E-mail: ");
-       scanf("%s", login.email);
        
-       printf("CPF (apenas numeros) : ");
-       scanf("%11s", login.CPF);
+       printf("\n");
+       printf(" Que bom ter você aqui!! Vamos realizar seu cadastro: ");
+       printf("\n");
+       printf("\n");
 
-       printf("Crie uma senha(max 20): ");
-       scanf("%20s", login.Senha);
-       system("cls");
+        printf("Nome: ");
+        scanf("%s", login.Nome);
+        printf("\n");
 
-}
+        printf("E-mail: ");
+        scanf("%s", login.email);
+        printf("\n");
+
+        printf("CPF (apenas numeros) : ");
+        scanf("%11s", login.CPF);
+        printf("\n");
+         
+        printf("Crie uma senha(max 20): ");
+        scanf("%20s", login.Senha);
+        system("cls");
+
+};
 
 void MenuPrincipal() { 
     
@@ -70,29 +82,29 @@ void MenuPrincipal() {
    printf("\n");
    printf(" Bem Vindo a nossa Assistente Virtual!! 😊 ");
    printf("\n");
-   
+   system("cls");
+
    printf("\n Escolha uma opção para podemos te ajudar: \n");
    printf(" ");
    
    printf("\n 1 - Cadastrar");
    printf("\n 2 - Fazer login ");
    printf("\n 3 - Pesquisar produtos ");
-   printf("\n 4 - Falar com atendente ");
-   printf("\n 5 - Sair \n");
+   printf("\n 4 - Sair \n");
    
-   
+   printf("\n");
    scanf("%i", &opc);
    
    switch(opc){
     case 1:
      printf("\nNovo por aqui? Que legal, vamos realizar seu cadastro..\n");
      cadastro();
-     inicio();
+     validacaoLogin();
      break;
      
     case 2:
      printf("\nQue bom ter você de volta.. Insira os dados para logar: ");
-       inicio();
+       validacaoLogin();
      break;
      
     case 3:
@@ -100,22 +112,19 @@ void MenuPrincipal() {
      break;
      
     case 4:
-      printf("\n Vamos conecta-lo a um de nossos atendentes ");
-     break;
-     
-    case 5:
       printf("\n Obrigado pelo contanto. Sempre que precisar pode me chamar 😊 ");
-     break;
-     
+      break;
+
      default:
      printf(" Opção invalida - Digite novamente ");
      
    }
-}
+};
 
 int main()
 {         
   MenuPrincipal();
-
+  
+  return 0;
 }
  
