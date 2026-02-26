@@ -8,6 +8,7 @@
 #define lin 2
 #define coluna 12
 #define tam 20
+#define yearAtual 2026
 #define MOSTRAR_FICHA(login) printf("\n Nome: %s | Idade: %d | CPF: %11s | Email: %s\n", login.Nome, login.Idade, login.CPF, login.email)
 
 
@@ -27,7 +28,36 @@
  struct Usuario login;
 
 
+int validacaoidade(int ano, int idade){  
+    if(ano >= 2009){
+        printf("Voce e menor de idade");
+     } else if(ano <= 1926){
+        printf("Sua idade e incompativel!");
+      } else 
+        return printf("Voce tem %i anos!", idade);
+};
+
+int ImpressaoIdade(){
+int dia, ano, mes, idade;
+
+  printf("Digite o dia ");
+  scanf("%i", &dia);
+
+  printf("Digite o mês ");
+  scanf("%i", &mes); 
+
+  printf("Ano de nascimento ");
+  scanf("%i", &ano);
+
+   idade = yearAtual - ano;
  
+      printf("\n%i/%i/%i \n", dia, mes, ano);
+
+   validacaoidade(ano, idade);
+  
+}
+ 
+
  void validacaoLogin() {
     char email[50];
     char senha[20];
@@ -68,7 +98,7 @@ void cadastro(){
         printf("CPF (apenas numeros) : ");
         scanf("%11s", login.CPF);
         printf("\n");
-         
+
         printf("Crie uma senha(max 20): ");
         scanf("%20s", login.Senha);
         system("cls");
@@ -99,6 +129,8 @@ void MenuPrincipal() {
     case 1:
      printf("\nNovo por aqui? Que legal, vamos realizar seu cadastro..\n");
      cadastro();
+     printf("Sua data de nascimento: ");
+     ImpressaoIdade();
      validacaoLogin();
      break;
      
