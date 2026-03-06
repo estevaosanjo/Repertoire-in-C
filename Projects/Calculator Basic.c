@@ -47,7 +47,7 @@
            {
             printf("Erro! ");
            }
-
+       return 0;
     }
     
     // Calculadora transformada em fun��o    
@@ -92,31 +92,29 @@
 }
 
     // Função para fazer um novo calculo ou não
-    int maisCalculo(char opc){
+    int maisCalculo(){
+    char opc;
 
-     printf("\nDeseja fazer mais calculos? \n");
-     printf(" SIM - S/s   N�O - N/n ");
-     scanf(" %c", &opc);  
-  
-     if(opc == 's' || opc == 'S'){
-         printf(" ");  
-         Calculadora();
-       } else if (opc == 'n' || opc == 'N'){
-           printf("Obrigado por utilizar nossos servi�os!");
-        }else{
-            printf("Escolha inv�lida!");
-           }
-       return 0;
-    }
+    do {
+        Calculadora();
+
+        printf("\nDeseja fazer mais calculos?\n");
+        printf("SIM - S/s   NAO - N/n: ");
+        scanf(" %c", &opc);
+
+    } while(opc == 's' || opc == 'S');
+
+    printf("\nObrigado por utilizar nossos servicos!");
+
+    return 0;
+};
     
 int main()
 {
    setlocale(LC_ALL, "Portuguese_Brazil");
-     char op;   
-// chamando calculadora
-
-    Calculadora();
-    maisCalculo(op);
+    
+   //Função que chama calculadora e repete ela mesma
+   maisCalculo();
 
  return 0;
 }
