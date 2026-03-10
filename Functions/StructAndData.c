@@ -12,66 +12,61 @@ typedef struct{
 } dados;
 dados salvar;
 
-int salvarCalculos(int cls[]){
+int salvarCalculos(int cls[], int pos){
 
-    int i,j;
-
-
-    i = cls[i];
-    
-    printf("\n%d", cls[i]);
-
-     salvar.numero[j] = cls[i];
+    for (int i = 0; i < 4 ; i++){
+      printf("Posicao: %i -- valor: %d", i+1, salvar.numero[i]);
+      printf("\n");
+    }
 
     return 0;
 } 
 
-int main(){
-   
-  int dois = 20;
-  int um = 19;
-  int pos = 10;
-
-  int soma1, soma2, soma3, soma4;
-  int subtrcao1,subtrcao2;
-
+int fazerCalculos(){
     
-    salvar.numero[0] = dois;
-    salvar.numero[1] = um;
-   
+    int calculos[10];
+    int soma1, soma2;
+    int subtrcao1,subtrcao2;
+    int pos = 10;
+
        printf("Digite os numeros para soma:\n");
        scanf("\n%d",&soma1);
-       scanf("\n%d",&soma2);
+       scanf("%d",&soma2);
        //scanf("\n%d",&soma3);
        //scanf("\n%d",&soma4);
        
        printf("Digite os numeros para subtracao:\n");
        scanf("\n%d",&subtrcao1);
-       scanf("\n%d",&subtrcao2);
+       scanf("%d",&subtrcao2);
 
-        int calculos[10];
-          calculos[1]= soma1 + soma2;
-          calculos[2]= subtrcao1 - subtrcao2;
+      calculos[0]= soma1 + soma2;
+      calculos[1]= subtrcao1 - subtrcao2;
+
+        salvar.numero[2] = calculos[0];
+        salvar.numero[3] = calculos[1];
+
+        salvarCalculos(calculos, pos);
+          
+        printf("| Conta: %d + %d: %d\n", soma1, soma2, salvar.numero[2]);
+        printf("| Conta: %d - %d: %d\n", subtrcao1, subtrcao2, salvar.numero[3]);
+
+
+       return 0;
+}
+
+
+int main(){
+   
+  int dois = 20;
+  int um = 19;
+  int calculos[10];  
 
          //printf("\n%d", calculos[1]);
-       
-         salvar.numero[2] = calculos[1];
-         salvar.numero[3] = calculos[2];
+         salvar.numero[0] = dois;
+         salvar.numero[1] = um;
 
+         fazerCalculos();
 
-         printf("%d", salvar.numero[2]);
           
-
-    //for(int j = 0; j < pos ; j++){
-    //}
-
-
-    for (int i = 0; i < pos ; i++){
-     printf("\n |Posicao: %i -- valor: %d  | \n", i+1, salvar.numero[i]);
-     printf("\n");
-    }
-        
-
-
     return 0;
 }
