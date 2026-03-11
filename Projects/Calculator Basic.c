@@ -50,6 +50,7 @@
 
     // Limpar a tela
     void clearscreen(){ system("cls"); }
+    
     // Calculadora transformada em função    
     void Calculadora(){
       double num1;
