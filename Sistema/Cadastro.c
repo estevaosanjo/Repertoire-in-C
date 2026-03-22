@@ -55,6 +55,8 @@ int main()
 {         
 
   cadastro();
+
+  printf("%s", login.Nome);
   return 0;
 }
  

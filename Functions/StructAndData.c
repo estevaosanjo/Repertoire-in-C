@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 // Manipulação de dados
@@ -7,79 +8,103 @@
 // Verificar espaços vazios e criar condições
 
 typedef struct{
-  double operacoes[10];
+  int nm1;
+  char oprd;
+  int nm2;
+  int res;
 } calculadora ;
-calculadora calculos;
-
-typedef struct{
-   int numero[10]; 
-} dados;
-dados salvar;
-
-
-int salvarCalculos(int clos[], int pos){
-    for (int i = 0; i < 4 ; i++){
-      printf("\nPosicao: %i -- valor: %d", i+1, salvar.numero[i]);
-      printf("\n");
-    }
-
-    return 0;
-} 
+calculadora mostrar[20];
 
 void clearscreen(){ 
   system("cls");
  }
 
-double mostrarCalculos(int num1, int num2, int resultado){
-    clearscreen();
-    printf("| Calculo: %d + %d: %d\n", num1, num2, resultado);
-    //printf("| Conta: %d - %d: %d\n", subtrcao1, subtrcao2, salvar.numero[3]);
+void salvarCalculos(){
+  clearscreen();
+    printf("Histórico de calculos: ");
 
-    return 0;
+}
+
+
+void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado){
+       clearscreen();
+       int tam = 1;
+      if((opr == '+')||(opr == '-')||(opr == '*')||(opr == '/')){ 
+        for(int i = 0 ; i < tam ; i++){
+          mostrar[i].nm1 = num1;
+          mostrar[i].oprd = opr;
+          mostrar[i].nm2 = num2;
+          mostrar[i].res = resultado;
+
+          printf("| Calculo: %d %c %d: %d\n", mostrar[i].nm1,mostrar[i].oprd,mostrar[i].nm2, mostrar[i].res);
+        }
+      }
+      else
+       printf("Operador não encontrado!");
+      
+       
 }
 
 int fazerCalculos(){
     
-    int calculos[10];
+   // int calculos[10];
     int nm1, nm2;
-    int pos = 10;
-    int opc;
+    //int pos = 10;
+    char operador,opc;
+    int res;
 
-
-     printf("Calculadora - Digite um numero: ");
+     printf("\n\nDigite um numero: ");
      scanf("%d", &nm1);
+     printf("Informe o operador ( + | - | * | / ): ");
+     scanf(" %s", &operador);
      printf("Digite um numero: ");
      scanf("%d", &nm2);
-     printf("Digite o numero correspondente ao operador:");
-     printf(" | 1: + | 2: - |3: * |4: /  \n");
 
-     scanf("%d", &opc);
-     clearscreen();
+     switch(operador){
+     
+      case '+': res = nm1 + nm2; printf("\nResultado: %d ", res); printf("\nVer histórico? (s/n) "); scanf("%c", opc);if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
+     
+      case '-': res = nm1 - nm2; printf("\nResultado: %d ", res); printf("\nVer histórico? (s/n) "); scanf("%c", opc); if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
+      
+      case '*': res = nm1 * nm2; printf("\nResultado: %d ", res);printf("\nVer histórico? (s/n) "); scanf("%c", opc); if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}
 
-     switch(opc){
-       case 1: printf("%d", nm1 + nm2); int res = nm1 + nm2; mostrarCalculos(nm1, nm2, res); break;
-       case 2: printf("%d", nm1 - nm2); int rs = nm1 - nm2; mostrarCalculos(nm1, nm2, rs); break;
-       case 3: printf("%d", nm1 * nm2); int resu = nm1 * nm2; mostrarCalculos(nm1, nm2, resu); break;
-       case 4: printf("%d", nm1 / nm2); int rest = nm1 / nm2; mostrarCalculos(nm1, nm2, rest); break;
-       default:  printf("Erro de digitação!");
+      case '/': if(nm2 == 0){ printf("Não é possivel dividir por 0!"); }  else { res = nm1 / nm2; printf("\nResultado: %d ", res);} printf("\nVer histórico? (s/n) "); scanf("%c", opc); if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;} break;
+        
+      default:  printf("Erro de digitação!");
      }
-
-        salvar.numero[0] = calculos[0];
-        salvar.numero[1] = calculos[1];
-
-        salvarCalculos(calculos, pos);
+          
 
        return 0;
 }
 
+void subMain() {
+    char opcaoMain;
+
+    do {
+     printf("\nVocê deseja salvar os calculos?\n");
+     scanf("%c",&opcaoMain);
+
+     if (opcaoMain == 's' || opcaoMain == 'S'){ fazerCalculos(); } 
+     else if (opcaoMain == 'n' || opcaoMain == 'N'){ printf("\nOK! Seus calculos não seram salvos. "); fazerCalculos(); } 
+     else { printf("\nEscolha uma opção válida!\n"); }
+
+    } while ( opcaoMain != 's');
+}
+
+
 
 int main(){
 
-  //int calculos[10];  
+    //int calculos[10]; 
+
+    // char opcaoMain;
 
     //printf("\n%d", calculos[1]);
-    fazerCalculos();
+    
 
-          
+    subMain();
+     
+   // salvarCalculos();
+
     return 0;
 }

@@ -6,9 +6,12 @@
 // Sistema básico de calcúlos criados
 // Atribuir funções de retorno --
  typedef struct{
-     double max[3];
+     double num1;
+     double num2;
+     double numAl;
+     char operador;
  } calculos;
-  calculos salvar;
+  calculos salvar[30];
 
     int somar(double n1, double n2){      
         double res = n1 + n2 ;
