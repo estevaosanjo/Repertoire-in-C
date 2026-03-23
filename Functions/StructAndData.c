@@ -80,10 +80,11 @@ int fazerCalculos(){
 void subMain() {
     char opcaoMain;
 
+     
+     
     do {
-     printf("\nVocê deseja salvar os calculos?\n");
-     scanf("%c",&opcaoMain);
-
+      printf("\nVocê deseja salvar os calculos?\n");
+      scanf("%c",&opcaoMain);
      if (opcaoMain == 's' || opcaoMain == 'S'){ fazerCalculos(); } 
      else if (opcaoMain == 'n' || opcaoMain == 'N'){ printf("\nOK! Seus calculos não seram salvos. "); fazerCalculos(); } 
      else { printf("\nEscolha uma opção válida!\n"); }
