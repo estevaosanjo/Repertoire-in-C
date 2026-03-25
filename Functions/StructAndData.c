@@ -62,13 +62,26 @@ int fazerCalculos(){
 
      switch(operador){
      
-      case '+': res = nm1 + nm2; printf("\nResultado: %d ", res); printf("\nVer histórico? (s/n) "); scanf("%c", opc);if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
+      case '+': 
+       res = nm1 + nm2; printf("\nResultado: %d ", res); 
+       printf("\nVer histórico? (s/n) "); scanf("%c", opc);
+        
+       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
      
-      case '-': res = nm1 - nm2; printf("\nResultado: %d ", res); printf("\nVer histórico? (s/n) "); scanf("%c", opc); if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
+      case '-': 
+       res = nm1 - nm2; printf("\nResultado: %d ", res); 
+       printf("\nVer histórico? (s/n) "); scanf("%c", opc);
+       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
       
-      case '*': res = nm1 * nm2; printf("\nResultado: %d ", res);printf("\nVer histórico? (s/n) "); scanf("%c", opc); if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}
+      case '*': 
+       res = nm1 * nm2; printf("\nResultado: %d ", res);
+       printf("\nVer histórico? (s/n) "); scanf("%c", opc); 
+       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}
 
-      case '/': if(nm2 == 0){ printf("Não é possivel dividir por 0!"); }  else { res = nm1 / nm2; printf("\nResultado: %d ", res);} printf("\nVer histórico? (s/n) "); scanf("%c", opc); if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;} break;
+      case '/': 
+       if(nm2 == 0){ printf("Não é possivel dividir por 0!"); }  
+       else { res = nm1 / nm2; printf("\nResultado: %d ", res);} printf("\nVer histórico? (s/n) "); scanf("%c", opc); 
+       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;} break;
         
       default:  printf("Erro de digitação!");
      }

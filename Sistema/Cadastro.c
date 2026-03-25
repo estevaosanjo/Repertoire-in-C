@@ -9,7 +9,7 @@
 #define coluna 12
 #define tam 20
 #define yearAtual 2026
-#define MOSTRAR_FICHA(login) printf("\n Nome: %s | Idade: %d | CPF: %11s | Email: %s\n", login.Nome, login.Idade, login.CPF, login.email)
+//#define MOSTRAR_FICHA(login) printf("\n Nome: %s | Idade: %d | CPF: %11s | Email: %s\n", login.Nome, login.Idade, login.CPF, login.email)
 
 
  /*typedef struct Ficha{
@@ -19,13 +19,14 @@
     
   };
 */
-  struct Usuario {
+
+ typerdef struct {
     int Idade;
     char Senha[20];
     char Nome[20], email[50], CPF[11];
- };
+   } usuario;
 
- struct Usuario login;
+   
 
 void cadastro(){
        
@@ -35,7 +36,7 @@ void cadastro(){
        printf("\n");
 
         printf("Nome: ");
-        scanf("%s", login.Nome);
+        scanf("%s", login.Nome[20]);
         printf("\n");
 
         printf("E-mail: ");
@@ -53,6 +54,9 @@ void cadastro(){
 };
 int main()
 {         
+ 
+ 
+  usuario login;
 
   cadastro();
 
