@@ -19,28 +19,33 @@ void clearscreen(){
   system("cls");
  }
 
-void salvarCalculos(){
-  clearscreen();
-    printf("Histórico de calculos: ");
-
-}
 
 
-void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado){
+int mostrarCalculos(char opc, calculadora mostrar[20], int num1,char opr, int num2, int resultado){
        clearscreen();
-       int tam = 1;
-      if((opr == '+')||(opr == '-')||(opr == '*')||(opr == '/')){ 
-        for(int i = 0 ; i < tam ; i++){
-          mostrar[i].nm1 = num1;
-          mostrar[i].oprd = opr;
-          mostrar[i].nm2 = num2;
-          mostrar[i].res = resultado;
+          
+    int tam = 1;
+    
+    printf("Histórico de calculos: ");
+    scanf(" %c", &opc);
+    if((opc == 'S')||(opc == 's')){
+        if((opr == '+')||(opr == '-')||(opr == '*')||(opr == '/')){ 
+            for(int i = 0 ; i < tam ; i++){
+            mostrar[i].nm1 = num1;
+            mostrar[i].oprd = opr;
+            mostrar[i].nm2 = num2;
+            mostrar[i].res = resultado;
+            printf("| Calculo: %d %c %d: %d\n", mostrar[i].nm1,mostrar[i].oprd,mostrar[i].nm2, mostrar[i].res);
+            }
+        } else
+        printf("Operador não encontrado!");
 
-          printf("| Calculo: %d %c %d: %d\n", mostrar[i].nm1,mostrar[i].oprd,mostrar[i].nm2, mostrar[i].res);
-        }
+
+    } else {
+       return 0;
       }
-      else
-       printf("Operador não encontrado!");
+
+    return -1;
       
        
 }
@@ -63,25 +68,22 @@ int fazerCalculos(){
      switch(operador){
      
       case '+': 
-       res = nm1 + nm2; printf("\nResultado: %d ", res); 
-       printf("\nVer histórico? (s/n) "); scanf("%c", opc);
-        
-       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
-     
+       res = nm1 + nm2; printf("\nResultado: %d ", res);
+       mostrarCalculos(opc,mostrar,nm1,operador, nm2, res);
+       break;
+
       case '-': 
        res = nm1 - nm2; printf("\nResultado: %d ", res); 
-       printf("\nVer histórico? (s/n) "); scanf("%c", opc);
-       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}break;
+      break;
       
       case '*': 
        res = nm1 * nm2; printf("\nResultado: %d ", res);
-       printf("\nVer histórico? (s/n) "); scanf("%c", opc); 
-       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;}
+       break;
 
       case '/': 
        if(nm2 == 0){ printf("Não é possivel dividir por 0!"); }  
-       else { res = nm1 / nm2; printf("\nResultado: %d ", res);} printf("\nVer histórico? (s/n) "); scanf("%c", opc); 
-       if((opc == 'S')||(opc == 's')){ mostrarCalculos(mostrar, nm1, operador, nm2, res);} else { return 0;} break;
+       else { res = nm1 / nm2; printf("\nResultado: %d ", res);}
+       break;
         
       default:  printf("Erro de digitação!");
      }
@@ -91,18 +93,19 @@ int fazerCalculos(){
 }
 
 void subMain() {
-    char opcaoMain;
+    int opcaoMain;
 
      
      
     do {
-      printf("\nVocê deseja salvar os calculos?\n");
-      scanf("%c",&opcaoMain);
-     if (opcaoMain == 's' || opcaoMain == 'S'){ fazerCalculos(); } 
-     else if (opcaoMain == 'n' || opcaoMain == 'N'){ printf("\nOK! Seus calculos não seram salvos. "); fazerCalculos(); } 
+
+      printf("\nVocê deseja salvar os calculos? 1-Sim 2-Nao\n");
+      scanf("%i",&opcaoMain);
+     if (opcaoMain == 1){ fazerCalculos(); } 
+     else if (opcaoMain == 2){ printf("\nOK! Seus calculos não seram salvos. "); fazerCalculos(); } 
      else { printf("\nEscolha uma opção válida!\n"); }
 
-    } while ( opcaoMain != 's');
+    } while ( opcaoMain != 1 );
 }
 
 
