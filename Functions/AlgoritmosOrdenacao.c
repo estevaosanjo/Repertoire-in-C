@@ -14,14 +14,16 @@ typedef enum{
 
 
 int buscarMaiorNumero(int v[], int tam);
-int selectionSort(int buscarMaiorNumero[], int tam);
+int selectionSort(int buscarMaiorNumero, int tam);
 
 int main(){
     int numberDesordanation[]={30,23,322,33,743,1,0,4905,86};
+    int numberOrd;
     int tam = sizeof(numberDesordanation)/sizeof(numberDesordanation[0]);
-    
-     buscarMaiorNumero(numberDesordanation, tam);
-     printf("\nSelection Sort: %d ", selectionSort(numberDesordanation, tam));
+
+     numberOrd = buscarMaiorNumero(numberDesordanation, tam);
+
+     printf("\nSelection Sort: %d ", selectionSort(numberOrd, tam));
 
     return 0;
 }
@@ -39,13 +41,13 @@ int buscarMaiorNumero(int v[], int tam){
       return printf("No indice: %i -- o maior numero: %i ", maiorIndice, maioNumber);
 };
 
-int selectionSort(int buscarMaiorNumero[], int tam){ 
-    int maiorNumero;
-    int novarr[]={0};
-     for(int i=0; i< tam ; i++){
-        maiorNumero = buscarMaiorNumero[i];
-        novarr[i] = maiorNumero;
-        return novarr[i];
+int selectionSort(int buscarMaiorNumero, int tam){ 
+
+    int novarr[tam];
+
+     for(int i=0; i < tam ; i++){
+        novarr[i] = buscarMaiorNumero;
+        printf("\n %i- %d ", i+1, novarr[i]);
      }
-    return 1;
+    return -1;
 }

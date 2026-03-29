@@ -1,8 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-void numbersAleatory(){
+
+void numbersAleatory(int numberRdm[], int tam);
+int ResearchBinary(int n[], int tam, int valor);
+
+
+
+int main(){
+
+  srand(time(NULL));
+
+ int numeros[10];  
+ int tam = sizeof(numeros)/sizeof(numeros[0]);
+
+
+  numbersAleatory(numeros, tam);
+  printf("\nNumero: %d", ResearchBinary(numeros, tam, 37));
+
 
 }
+
 
 int ResearchBinary(int n[], int tam, int valor){
     int inicio = 0;
@@ -22,11 +41,12 @@ int ResearchBinary(int n[], int tam, int valor){
     return -1;
 }
 
-int main(){
+void numbersAleatory(int numberRdm[], int tam){
+    int max = 1000;
+    int min = 1;
 
- int numeros[] = {2, 5, 6, 7, 8, 12, 15, 16, 22, 34, 38, 45, 57};  
- int tam = sizeof(numeros)/sizeof(numeros[0]);
-
-  printf("Numero: %d", ResearchBinary(numeros, tam, 38));
-
+    for (int i = 0; i < tam; i++){
+        numberRdm[i] = rand() % (max - min + 1) + min;
+        printf(" | %d", numberRdm[i]);
+    }
 }
