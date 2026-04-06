@@ -5,7 +5,7 @@
 
 void numbersAleatory(int numberRdm[], int tam);
 int ResearchBinary(int n[], int tam, int valor);
-
+int BubbleSort(int array[], int tamanho);
 
 
 int main(){
@@ -17,7 +17,10 @@ int main(){
 
 
   numbersAleatory(numeros, tam);
-  printf("\nNumero: %d", ResearchBinary(numeros, tam, 37));
+  printf("\n\n");
+  BubbleSort(numeros, tam);
+
+  printf("\n\nNumero: %d", ResearchBinary(numeros, tam, 120));
 
 
 }
@@ -49,4 +52,22 @@ void numbersAleatory(int numberRdm[], int tam){
         numberRdm[i] = rand() % (max - min + 1) + min;
         printf(" | %d", numberRdm[i]);
     }
+}
+
+int BubbleSort(int array[], int tamanho){
+
+     int aux;
+     for(int i = 0; i < tamanho; i++){
+
+      for(int j = i+1 ; j < tamanho; j++){
+          
+          if(array[i] > array[j]){
+               aux = array[i];
+               array[i] = array[j];
+               array[j] = aux;
+          }
+     }
+       printf("| %d ", array[i]);
+    }     
+     return -1;
 }

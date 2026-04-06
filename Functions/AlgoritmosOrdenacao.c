@@ -1,53 +1,90 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct{
-    char nome;
-    int idade;
-    int CPF;
-} usuario;
- usuario dados;
-
-typedef enum{
-    JANEIRO = 1, FEVEREIRO=2, MARÇO=3, ABRIL=4, MAIO=5, JUNHO=6, JULHO=7, AGOSTO=8, SETEMBRO=9, OUTUBRO=10, NOVEMBRO=11, DEZEMBRO=12 
-} mes;
-
-
 int buscarMaiorNumero(int v[], int tam);
-int selectionSort(int buscarMaiorNumero, int tam);
+int SelectSort(int array[], int tam);
+int BubbleSort(int array[], int tamanho);
 
 int main(){
     int numberDesordanation[]={30,23,322,33,743,1,0,4905,86};
-    int numberOrd;
     int tam = sizeof(numberDesordanation)/sizeof(numberDesordanation[0]);
+    int opc, op;
+    printf("\nLista desordenada: ");
+    for(int i = 0; i < tam ; i++){      
+    printf(" %d", numberDesordanation[i]);
+    }
 
-     numberOrd = buscarMaiorNumero(numberDesordanation, tam);
+    printf("O que deseja? \n");
+    printf("1- Buscar maior numero \n");
+    printf("2- Ordenar a lista \n");
+    scanf("%i", &opc);
+    switch(opc){
+    case 1: 
+       buscarMaiorNumero(numberDesordanation,tam);
+       break;
+    case 2:
+      printf("\n 1- Selection Sort | or | 2- Bubble Sort \n");
+      scanf("%i", &op);
+      if(op == 1){
+         SelectSort(numberDesordanation, tam);
+      } else
+        BubbleSort(numberDesordanation, tam);
+      break;
 
-     printf("\nSelection Sort: %d ", selectionSort(numberOrd, tam));
-
+    default: printf("\nOpção inválida!\n");
     return 0;
+    }
 }
 
-int buscarMaiorNumero(int v[], int tam){
-    int maioNumber = v[0];
-    int maiorIndice;
+int buscarMaiorNumero( int v[], int tam){
 
+    int maioNumber = v[0];
+    
       for(int i = 0; i < tam ; i++){
          if(v[i]> maioNumber){
             maioNumber = v[i];
-            maiorIndice = i;
          }
       }
-      return printf("No indice: %i -- o maior numero: %i ", maiorIndice, maioNumber);
-};
+       return maioNumber;
+}
 
-int selectionSort(int buscarMaiorNumero, int tam){ 
+int SelectSort(int array[], int tam){
+    int aux;
+    int i,j;
 
-    int novarr[tam];
+     for(i =0; i < tam ; i++){
 
-     for(int i=0; i < tam ; i++){
-        novarr[i] = buscarMaiorNumero;
-        printf("\n %i- %d ", i+1, novarr[i]);
+       int indElem = i;
+      for(j = i + 1 ; j < tam ; j++){
+          if( array[j] > array[indElem]){
+              indElem = j;
+          }
+      }
+       if(indElem != i){
+          aux = array[i];
+          array[i] = array[indElem];
+          array[indElem] = aux;
+       }
+      printf(" %d ", array[i]);
      }
+
     return -1;
+    
+}
+
+int BubbleSort(int array[], int tamanho){
+
+     int aux;
+     for(int i = 0; i < tamanho; i++){
+      for(int j = i+1 ; j < tamanho; j++){
+          
+          if(array[i] > array[j]){
+               aux = array[i];
+               array[i] = array[j];
+               array[j] = aux;
+          }
+     }
+       printf(" %d ", array[i]);
+    }     
+     return -1;
 }
