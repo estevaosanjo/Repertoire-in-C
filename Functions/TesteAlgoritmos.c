@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int SelectSort(int array[], int tam);
+void SelectSort(int array[], int tam);
 
 int main(){
 
@@ -15,7 +15,7 @@ int main(){
     return 0;
 }
 
-int SelectSort(int array[], int tam){
+void SelectSort(int array[], int tam){
     int aux;
     int i,j;
 
@@ -34,7 +34,5 @@ int SelectSort(int array[], int tam){
        }
       printf(" %d ", array[i]);
      }
-
-    return -1;
     
 }

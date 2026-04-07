@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 int buscarMaiorNumero(int v[], int tam);
-int SelectSort(int array[], int tam);
-int BubbleSort(int array[], int tamanho);
+void SelectSort(int array[], int tam);
+void BubbleSort(int array[], int tamanho);
 
 int main(){
     int numberDesordanation[]={30,23,322,33,743,1,0,4905,86};
@@ -48,7 +48,7 @@ int buscarMaiorNumero( int v[], int tam){
        return maioNumber;
 }
 
-int SelectSort(int array[], int tam){
+void SelectSort(int array[], int tam){
     int aux;
     int i,j;
 
@@ -67,12 +67,10 @@ int SelectSort(int array[], int tam){
        }
       printf(" %d ", array[i]);
      }
-
-    return -1;
     
 }
 
-int BubbleSort(int array[], int tamanho){
+void BubbleSort(int array[], int tamanho){
 
      int aux;
      for(int i = 0; i < tamanho; i++){
@@ -86,5 +84,4 @@ int BubbleSort(int array[], int tamanho){
      }
        printf(" %d ", array[i]);
     }     
-     return -1;
 }
