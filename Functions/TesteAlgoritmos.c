@@ -3,14 +3,16 @@
 
 
 void SelectSort(int array[], int tam);
+int sumWithRecursion(int nmrs[], int tam);
 
 int main(){
 
 
-    int array[] = {10, 30, 45, 5, 7};
+    int array[] = {10, 30, 45};
     int tam = sizeof(array)/sizeof(array[0]);
 
-   SelectSort(array, tam);
+   //SelectSort(array, tam);
+   printf(" %d" ,sumWithRecursion(array, tam));
 
     return 0;
 }
@@ -35,4 +37,12 @@ void SelectSort(int array[], int tam){
       printf(" %d ", array[i]);
      }
     
+}
+
+int sumWithRecursion(int nmrs[], int tam){
+    if(tam == 0){
+        return nmrs[0];
+    } else {
+        return nmrs[tam] + sumWithRecursion(nmrs, tam - 1);
+    }
 }
