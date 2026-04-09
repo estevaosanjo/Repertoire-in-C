@@ -4,6 +4,7 @@
 
 void SelectSort(int array[], int tam);
 int sumWithRecursion(int nmrs[], int tam);
+void showTheList(int lista[], int tam);
 
 int main(){
 
@@ -12,7 +13,7 @@ int main(){
     int tam = sizeof(array)/sizeof(array[0]);
 
    //SelectSort(array, tam);
-   printf(" %d" ,sumWithRecursion(array, tam));
+    showTheList(array, tam);
 
     return 0;
 }
@@ -45,4 +46,13 @@ int sumWithRecursion(int nmrs[], int tam){
     } else {
         return nmrs[tam] + sumWithRecursion(nmrs, tam - 1);
     }
+}
+
+void showTheList(int lista[], int tam){
+    if(tam == 0){
+        return;
+    }
+
+    showTheList(lista, tam-1);   // desce até o início
+    printf("%d ", lista[tam-1]); // imprime na volta
 }
