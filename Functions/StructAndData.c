@@ -52,12 +52,12 @@ int mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int re
     if((opc == 'S')||(opc == 's')){
       
         if((opr == '+')||(opr == '-')||(opr == '*')||(opr == '/')){ 
-            for( i = 0 ; i < tam ; i++){
+            for( i = 1 ; i < tam ; i++){
               mostrar[i].nm1= num1;
               mostrar[i].oprd = opr;
               mostrar[i].nm2 = num2;
               mostrar[i].res = resultado;
-               printf("\n| Calculo: %d %c %d: %d\n", mostrar[i].nm1, mostrar[i].oprd, mostrar[i].nm2, mostrar[i].res);
+               printf("\n| %d - Calculo: %d %c %d: %d\n", i, mostrar[i].nm1, mostrar[i].oprd, mostrar[i].nm2, mostrar[i].res);
             }
         }
          else
@@ -78,8 +78,9 @@ int fazerCalculos(){
     int nm1, nm2;
     //int pos = 10;
     char operador;
-    int res, opcaoMain = 0;
-    int tamanho;
+    int res = 0;
+    int opcaoMain = 0;
+    int tamanho = 20;
 
      printf("\n\nDigite um numero: ");
      scanf("%d", &nm1);
@@ -144,5 +145,7 @@ int moreOperations(int opcaoMain){
       } else {
          printf("\nEscolha uma opção válida!\n"); 
         }
+
+    return -1;
 
 }
