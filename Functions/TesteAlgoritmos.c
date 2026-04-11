@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/*
 void SelectSort(int array[], int tam);
 int sumWithRecursion(int nmrs[], int tam);
 void showTheList(int lista[], int tam);
@@ -55,4 +55,35 @@ void showTheList(int lista[], int tam){
 
     showTheList(lista, tam-1);   // desce até o início
     printf("%d ", lista[tam-1]); // imprime na volta
+}
+*/
+typedef struct{
+  int nm1;
+  char oprd;
+  int nm2;
+  int res;
+} calculadora;
+calculadora mostrar[20];
+
+int main(){
+
+ int j =1;
+
+    for(int k =0 ; k < 3 ; k++){
+        printf("Digite n: ");
+        scanf(" %i",&mostrar[k].nm1);
+        printf("Digite n: ");
+        scanf(" %i",&mostrar[k].nm2);
+        printf("Digite opr: ");
+        scanf(" %c", &mostrar[k].oprd);
+        mostrar[k].res = mostrar[k].nm1 + mostrar[k].nm2;
+        printf("\n");
+    }
+    for(int i = 0 ; i < 3 ; i++){
+        printf("\n| %d - Calculo: %d %c %d: %d", j, mostrar[i].nm1, mostrar[i].oprd, mostrar[i].nm2, mostrar[i].res);
+        j++;
+    }
+    
+    
+ return 0;
 }
