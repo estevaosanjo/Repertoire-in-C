@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*
 void SelectSort(int array[], int tam);
@@ -56,7 +57,8 @@ void showTheList(int lista[], int tam){
     showTheList(lista, tam-1);   // desce até o início
     printf("%d ", lista[tam-1]); // imprime na volta
 }
-*/
+
+
 typedef struct{
   int nm1;
   char oprd;
@@ -87,3 +89,53 @@ int main(){
     
  return 0;
 }
+
+
+*/
+
+int SearchNumber(int p[], int *m, int *mr, int tam){
+    
+    int i ;
+      *m = p[0];
+      *mr = p[0];
+       
+      for( i = 1; i < tam ; i++){
+         if(p[i] > *m){
+            *m = p[i];
+         }
+         if(p[i] < *mr){
+            *mr = p[i];
+         }
+      }
+       
+
+  return  printf("Maior N: %d\t Menor N: %d\n", *m, *mr);
+}
+
+int main(){
+    
+    int a[]= {240, 34, 20, 30, 223, 10, 1};
+    int maior, menor;
+    int tamanho;
+    
+    //printf(" %d ", *p);
+    scanf("%d", &tamanho);
+    SearchNumber(a, &maior, &menor, tamanho);
+
+    return 0;
+}
+
+/* #include <stdio.h>
+
+int main(){
+    int a = 70;
+    int b = 5;
+    int res;
+    
+    res = a % b;
+
+    printf("%d", res);
+
+    return 0;
+}
+*/ 

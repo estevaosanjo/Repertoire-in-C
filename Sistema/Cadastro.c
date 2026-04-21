@@ -20,14 +20,14 @@
   };
 */
 
- typerdef struct {
-    int Idade;
-    char Senha[20];
-    char Nome[20], email[50], CPF[11];
+typedef struct {
+    int idade;
+    char senha[20];
+    char nome[20], email[50], cpf[11];
    } usuario;
+     usuario login;
 
    
-
 void cadastro(){
        
        printf("\n");
@@ -36,31 +36,30 @@ void cadastro(){
        printf("\n");
 
         printf("Nome: ");
-        scanf("%s", login.Nome[20]);
+        scanf("%s", login.nome[20]);
         printf("\n");
 
-        printf("E-mail: ");
-        scanf("%s", login.email);
+        //printf("E-mail: ");
+        //fflush(stdin);
+        //gets(login.email[50]);
         printf("\n");
 
         printf("CPF (apenas numeros) : ");
-        scanf("%11s", login.CPF);
+        scanf("%11s", login.cpf);
         printf("\n");
 
         printf("Crie uma senha(max 20): ");
-        scanf("%20s", login.Senha);
+        scanf("%20s", login.senha);
         system("cls");
 
 };
+
 int main()
 {         
- 
- 
-  usuario login;
 
   cadastro();
 
-  printf("%s", login.Nome);
+  printf("%s", login.nome);
   return 0;
 }
  

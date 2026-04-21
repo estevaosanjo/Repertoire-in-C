@@ -4,13 +4,13 @@
 #include <string.h>
 
 //Gerar numeros pseudo-aleatórios
-void numbersRadom(int numberRdm[], int tam);
+void numbersRadom(int*, int);
 
 //Busca do maior número usando recursão
-int maiorNumero(int v[], int tam, int i);
+int maiorNumero(int*, int, int);
 
 //Mostrar o endereço na memória
-void memoryAdress(int v[], int indice);
+void memoryAdress(int*, int);
 
 
 int main()

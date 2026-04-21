@@ -8,7 +8,7 @@
  typedef struct{
      double num1;
      double num2;
-     double numAl;
+     double res;
      char operador;
  } calculos;
   calculos salvar[30];
@@ -55,30 +55,29 @@
     void clearscreen(){ system("cls"); }
     
     // Calculadora transformada em função    
-    void Calculadora(){
+ void Calculadora(){
       double num1;
       double num2;
 
-        int opc;
+        char opc;
 
         printf("Calculadora: \n");
         
-        printf("\nDigite Nª: ");
+        printf("\nDigite Nmr: ");
         scanf("%lf", &num1);
-        printf("\nDigite Nª: ");
+ 
+        printf("\nOperacao - \t");
+        printf(" + | - | * | / \t: ");
+        scanf("%s", &opc);
+        
+        printf("\nDigite Nmr: ");
         scanf("%lf", &num2);
         
-        printf("\nEscolha a Opreração: \n");
-        printf("\n");
-        printf(" 1: + | 2: - | 3: * | 4: / \n");
-        
-        scanf("%i", &opc);
-        
         switch (opc){    
-        case 1: somar(num1,num2); break; 
-        case 2: subtrair(num1,num2); break;
-        case 3: multiplicar(num1,num2); break;
-        case 4: dividir(num1,num2); break;
+        case '+': somar(num1,num2); break; 
+        case '-': subtrair(num1,num2); break;
+        case '*': multiplicar(num1,num2); break;
+        case '/': dividir(num1,num2); break;
         default: printf("Escolha inválida!");
         
     }
