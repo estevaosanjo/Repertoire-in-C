@@ -19,7 +19,7 @@ void clearscreen(){
   system("cls");
  }
 
-int mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado);
+void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado);
 int fazerCalculos();
 //int subMain(char operador, int res, int nm1, int nm2);
 //int moreOperations(int opcaoMain);
@@ -33,18 +33,17 @@ int main(){
 }
 
 
-int mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado){
-   int i;
+void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado){
+   int i = 1;
+   int j;
     //printf("\nHistórico de calculos: \n");
-      for( i = 1 ; i < 3 ; i++){
-        mostrar[i].nm1= num1;
-        mostrar[i].oprd = opr;
-        mostrar[i].nm2 = num2;
-        mostrar[i].res = resultado;
+      for( int j = 0 ; j < 3 ; j++){
+        mostrar[j].nm1= num1;
+        mostrar[j].oprd = opr;
+        mostrar[j].nm2 = num2;
+        mostrar[j].res = resultado;
       }
-      printf("\n| %d - Calculo: %d %c %d: %d\n", i, mostrar[i].nm1, mostrar[i].oprd, mostrar[i].nm2, mostrar[i].res);
-
-  return -1;
+      printf("\n| %d - Calculo: %d %c %d: %d\n", i, mostrar[j].nm1, mostrar[j].oprd, mostrar[j].nm2, mostrar[j].res);
       
        
 }
@@ -53,7 +52,6 @@ int fazerCalculos(){
 
     char operador;
     int res, nm1, nm2;
-    int tamanho = 20;
 
      printf("\n\nDigite um numero: ");
      scanf("%d", &nm1);

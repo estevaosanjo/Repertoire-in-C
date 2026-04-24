@@ -92,7 +92,7 @@ int main(){
 
 
 */
-
+/*
 int SearchNumber(int p[], int *m, int *mr, int tam){
     
     int i ;
@@ -125,7 +125,7 @@ int main(){
     return 0;
 }
 
-/* #include <stdio.h>
+ #include <stdio.h>
 
 int main(){
     int a = 70;
@@ -139,3 +139,42 @@ int main(){
     return 0;
 }
 */ 
+
+// Quick Sort and Merge Sort
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
+void quicksort(int lista[], int tam){
+    
+    int i, k = 0;
+    int pivo = lista[0];
+    int maioresDireita[tam];
+    int menoresEsquerda[tam];
+    
+        for (int j = 0; j < tam; j++) {
+            if (lista[j] > pivo) {
+                maioresDireita[k++] = lista[j];
+            } else if (lista[j] < pivo) {
+                menoresEsquerda[i++] = lista[j];
+            }
+        }
+}
+
+int main(){
+    int lista[]={10, 2, 302, 32, 4, 231, 31, 17, 23, 47, 78};
+    int tam = sizeof(lista)/sizeof(lista[0]);
+
+    quicksort(lista, tam);
+
+
+    printf("Lista:");
+    for(int j = 0; j< tam ; j++){
+        printf(" %d", lista[j]);
+    }
+    printf("\nTamanho: %d\n", tam);
+    return 0;
+}
+// Tabela Hash and Grafos
