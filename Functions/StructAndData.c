@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-// Manipulação de dados
-// Criar um algoritmo para mover dados de uma variavel para uma Struct 
-// Verificar espaços vazios e criar condições
-
 typedef struct{
   int nm1;
   char oprd;
@@ -15,15 +10,9 @@ typedef struct{
 } calculadora ;
 calculadora mostrar[20];
 
-void clearscreen(){ 
-  system("cls");
- }
-
+void clearscreen();
 void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado);
 int fazerCalculos();
-//int subMain(char operador, int res, int nm1, int nm2);
-//int moreOperations(int opcaoMain);
-
 
 int main(){
 
@@ -34,18 +23,21 @@ int main(){
 
 
 void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado){
-   int i = 1;
-   int j;
-    //printf("\nHistórico de calculos: \n");
-      for( int j = 0 ; j < 3 ; j++){
+   int i = 1; 
+   int tam;
+  
+    for( int j = 0 ; j < 3 ; j++){
         mostrar[j].nm1= num1;
         mostrar[j].oprd = opr;
         mostrar[j].nm2 = num2;
         mostrar[j].res = resultado;
       }
-      printf("\n| %d - Calculo: %d %c %d: %d\n", i, mostrar[j].nm1, mostrar[j].oprd, mostrar[j].nm2, mostrar[j].res);
-      
-       
+    printf("\nMostrar quantos calculos? ");
+    scanf("%d", &tam);
+    for(int j = 0 ; j < tam ; j++){
+        printf("\n| %d - Calculo: %d %c %d: %d\n", i++, mostrar[j].nm1, mostrar[j].oprd, mostrar[j].nm2, mostrar[j].res);
+    }
+    
 }
 
 int fazerCalculos(){
@@ -84,63 +76,10 @@ int fazerCalculos(){
 
     // subMain(operador, res, nm1, nm2);
      mostrarCalculos(mostrar, nm1, operador, nm2, res);
-    
-
-    // printf("\n\n Fazer mais calculos ( 1 - Sim  2 - Nao ): ");
-    // scanf(" %i", &opcaoMain);
-    // moreOperations(opcaoMain);
-
       
        return 0;
 }
 
-/*
-int subMain(char operador, int res, int nm1, int nm2) {
-    
-    switch(operador){
-     
-      case '+': 
-       res = nm1 + nm2; printf("\nResultado: %d ", res);
-       break;
-
-      case '-': 
-       res = nm1 - nm2; printf("\nResultado: %d ", res); 
-      break; 
-      
-      case '*': 
-       res = nm1 * nm2; printf("\nResultado: %d ", res);
-       break;
-
-      case '/': 
-       if(nm2 == 0){ printf("Não é possivel dividir por 0!"); }  
-       else { res = nm1 / nm2; printf("\nResultado: %d ", res);}
-       break;
-        
-      default:  printf("Erro de digitação!");
-     }
-
-
-  return 1;
-
-}
-
-int moreOperations(int opcaoMain){
-
-   if (opcaoMain == 1){
-
-       fazerCalculos();
-
-      } else if (opcaoMain == 2){ 
-
-        printf("\nOK! Muito Obrigado por utilizar nossos serviços!. "); 
-        return 0;
-
-      } else {
-         printf("\nEscolha uma opção válida!\n"); 
-        }
-
-    return -1;
-
-}
-
-*/
+void clearscreen(){ 
+  system("cls");
+ }

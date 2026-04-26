@@ -4,39 +4,46 @@
 
 
 void numbersAleatory(int numberRdm[], int tam);
+void SelectSort(int array[], int tam);
+void QuickSort(int array[], int tam);
+void impressao(int array[], int tam);
 int ResearchBinary(int n[], int tam, int valor);
 int BubbleSort(int array[], int tamanho);
-void SelectSort(int array[], int tam);
 
 
 int main(){
 
   srand(time(NULL));
 
- int numeros[10];  
+ int numeros[15];  
  int tam = sizeof(numeros)/sizeof(numeros[0]);
- int opc;
+ int opc, valorAleatorio;
+   
+
+  printf("Acerte um numero aletorio (1 - 1000): ");
+  scanf("%d", &valorAleatorio);
 
   //Geração de números aleatórios, 10 numeros, entre 1 e 1000
   numbersAleatory(numeros, tam);
    
   
   //Escolha entre algoritmos de ordenação, aumente o tamanho do array, e será possivel ver a diferença de tempo de execução
-    printf(" Ordenar a lista: \n");
-    printf(" 1- Selection | 2 - Bubble Sort  ");
+    printf("\n Ordenar a lista: \n");
+    printf(" 1- Selection | 2 - Bubble Sort | 3 - Quick Sort ");
     scanf("%i", &opc);
-      switch(opc){
+      
+    switch(opc){
       case 1: 
-        SelectSort(numeros, tam);
-        break;
+        SelectSort(numeros, tam); impressao(numeros, tam); break;
       case 2:
-          BubbleSort(numeros, tam);
-        break;
+        BubbleSort(numeros, tam); impressao(numeros, tam); break;
+      case 3:
+        QuickSort(numeros, tam); impressao(numeros, tam); break;
       }
 
 
   //A busca binária - busca o valor 120, em uma geração de números aleatórios, caso não encontre retorna -1
-  printf("\n\nNumero: %d", ResearchBinary(numeros, tam, 120));
+  printf("\n\nNumero: %d", ResearchBinary(numeros, tam, valorAleatorio));
 
 
 }
@@ -87,13 +94,11 @@ void SelectSort(int array[], int tam){
           array[i] = array[indElem];
           array[indElem] = aux;
        }
-      printf(" %d ", array[i]);
      }
     
 }
 
 int BubbleSort(int array[], int tamanho){
-
      int aux;
      for(int i = 0; i < tamanho; i++){
 
@@ -105,7 +110,49 @@ int BubbleSort(int array[], int tamanho){
                array[j] = aux;
           }
      }
-       printf("| %d ", array[i]);
     }     
      return -1;
+}
+
+void QuickSort(int array[], int tam){
+   
+  int i = 0;
+  int k = 0;
+  int pivo = array[0];
+
+  int menoresEsquerda[tam];
+  int maioresDireita[tam];
+     
+    if(tam <= 1){
+      return;
+    } else {
+        for(int j = 1; j < tam; j++){
+          if(array[j] >= pivo){
+            maioresDireita[k++] = array[j];
+          } else{
+            menoresEsquerda[i++] = array[j];
+            }
+        }
+          QuickSort(menoresEsquerda, i);
+          QuickSort(maioresDireita, k);
+          
+            int indice = 0;
+            for(int j = 0; j < i ; j++){
+              array[indice++] = menoresEsquerda[j];
+            }
+              array[indice++] = pivo;
+
+            for(int j = 0; j < k ; j++){
+              array[indice++] = maioresDireita[j];
+            }  
+          
+      }
+}
+
+void impressao(int array[], int tam){
+  printf("\n");
+  for(int i = 0; i < tam ; i++){
+    printf("| %d ", array[i]);
+  }
+  printf("\n");
 }

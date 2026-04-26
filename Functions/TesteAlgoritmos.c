@@ -145,36 +145,23 @@ int main(){
 #include <stdlib.h>
 #include <string.h>
 
-
-
-void quicksort(int lista[], int tam){
-    
-    int i, k = 0;
-    int pivo = lista[0];
-    int maioresDireita[tam];
-    int menoresEsquerda[tam];
-    
-        for (int j = 0; j < tam; j++) {
-            if (lista[j] > pivo) {
-                maioresDireita[k++] = lista[j];
-            } else if (lista[j] < pivo) {
-                menoresEsquerda[i++] = lista[j];
-            }
-        }
+// Algoritmo de ordenação Quik Sort
+void mergeSort(int lista[], int tam){
+  int i = 0;
+   if(tam <= 1){
+     return;
+   } else{
+     
+   }
 }
 
 int main(){
-    int lista[]={10, 2, 302, 32, 4, 231, 31, 17, 23, 47, 78};
+    int lista[]={10, 2, 302, 32, 4, 231, 31, 17, 23, 47, 78,9, 3423};
     int tam = sizeof(lista)/sizeof(lista[0]);
+     
+    mergeSort(lista, tam);
 
-    quicksort(lista, tam);
+    return;
 
-
-    printf("Lista:");
-    for(int j = 0; j< tam ; j++){
-        printf(" %d", lista[j]);
-    }
-    printf("\nTamanho: %d\n", tam);
-    return 0;
-}
 // Tabela Hash and Grafos
+}
