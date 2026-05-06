@@ -13,53 +13,39 @@
  } calculos;
   calculos salvar[30];
 
-    int somar(double n1, double n2){      
+ int somar(double n1, double n2){      
         double res = n1 + n2 ;
         printf("\n\nSoma: %lf\n\n", res);
         return 0;
     }
-    
-    int subtrair(double n1, double n2){
+ int subtrair(double n1, double n2){
         double res = n1 - n2;
         printf("\n\nSubtração: %lf\n\n", res);
         return 0;
     }
-    
-    int multiplicar(double n1, double n2){
+ int multiplicar(double n1, double n2){
         double res = n1 * n2;
         printf("\n\nMultiplicação: %lf\n\n", res);
         return 0;
+    }   
+ int dividir(double n1, double n2){     
+        // Verificando se o segundo numero é 0 -- Se for 'Diferente de' 0, executa:
+        if (n2 != 0 ){ double res = n1 / n2; printf("\n\nDivisão: %lf\n\n", res); } // Se for 0, exibe mensagem de erro
+        else { printf("Erro! "); }
+        return 0;
     }
     
-    int dividir(double n1, double n2){     
-       // Verificando se o segundo numero é 0 -- Se for 'Diferente de' 0, executa:
-         if (n2 != 0 ){ double res = n1 / n2; printf("\n\nDivisão: %lf\n\n", res); } // Se for 0, exibe mensagem de erro
-          else { printf("Erro! "); }
-         return 0;
-    }
+
+// Limpar a tela
+void clearscreen(){ system("cls"); }
     
+// Calculadora transformada em função    
+void Calculadora(){
+      
+    double num1;
+    double num2;
 
-
-   /* int salvarCalculos(){
-        char opc;
-        printf("Você quer salvar os calculos?");
-        scanf("%c", opc);
-         if((opc == 's') || (opc == 'S')){
-            opc = salvar.max[1];
-
-         } else 
-          return 0;
-    };*/
-
-    // Limpar a tela
-    void clearscreen(){ system("cls"); }
-    
-    // Calculadora transformada em função    
- void Calculadora(){
-      double num1;
-      double num2;
-
-        char opc;
+    char opc;
 
         printf("Calculadora: \n");
         
