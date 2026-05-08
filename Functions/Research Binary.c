@@ -9,7 +9,11 @@ void QuickSort(int array[], int tam);
 void impressao(int array[], int tam);
 int ResearchBinary(int n[], int tam, int valor);
 int BubbleSort(int array[], int tamanho);
-
+void iniciarHash(int t[], int tam);
+int funcaoHash(int chave, int tam);
+void inserirHash(int t[],int valor);
+int buscarHash(int t[], int chave);
+void imprimirHash(int t[], int tam);
 
 int main(){
 
@@ -17,13 +21,13 @@ int main(){
 
  int numeros[15];  
  int tam = sizeof(numeros)/sizeof(numeros[0]);
- int opc, valorAleatorio;
+ int opc, valorAleatorio, opcaobsc;
    
 
   printf("Acerte um numero aletorio (1 - 1000): ");
   scanf("%d", &valorAleatorio);
 
-  //Geração de números aleatórios, 10 numeros, entre 1 e 1000
+  //Geração de números aleatórios, uma certa quantidade, entre 1 e 1000
   numbersAleatory(numeros, tam);
    
   
@@ -41,13 +45,21 @@ int main(){
         QuickSort(numeros, tam); impressao(numeros, tam); break;
       }
 
-
-  //A busca binária - busca o valor 120, em uma geração de números aleatórios, caso não encontre retorna -1
-  printf("\n\nNumero: %d", ResearchBinary(numeros, tam, valorAleatorio));
-
+  //Escolha qual pode onde fazer a busca, hash ou binária
+  iniciarHash(numeros, tam);
+  inserirHash(numeros, numbersAleatory);
+  funcaoHash(numeros, tam);
+  
+  printf("Escolha 1 - Hash | 2 - Busca Binária ");
+  scanf("%i", &opcaobsc);
+    if(opcaobsc == 1)
+    printf("\n\nNumero: %d", buscarHash(numeros, tam)); 
+    else if(opcaobsc == 2)//A busca binária - busca o valor 120, em uma geração de números aleatórios, caso não encontre retorna -1
+    printf("\n\nNumero: %d", ResearchBinary(numeros, tam, valorAleatorio));
+    else
+     printf("Opcao invalida");
 
 }
-
 
 int ResearchBinary(int n[], int tam, int valor){
     int inicio = 0;
@@ -155,4 +167,46 @@ void impressao(int array[], int tam){
     printf("| %d ", array[i]);
   }
   printf("\n");
+}
+
+
+
+void iniciarHash(int t[], int tam){
+   int i;
+    for(i = 0; i< tam ; i++)
+     t[i] = 0;
+}
+
+
+int funcaoHash(int chave, int tam){
+    return chave % tam;
+}
+
+
+void inserirHash(int t[],int valor){
+    int indice = funcaoHash(valor);
+    while(t[indice] != 0){
+      indice = funcaoHash(indice + 1);
+    }
+     t[indice] = valor;
+}
+
+int buscarHash(int t[], int chave){
+   
+    int busca = funcaoHash(chave);
+    while(t[busca] != 0){
+        if(t[busca] == chave)
+          return t[busca];
+        else 
+          busca = funcaoHash(busca+1);
+         
+    }
+    return 0;
+}
+
+
+void imprimir(int t[], int tam){
+   int i;
+   for(i = 0; i<tam; i++)
+    printf("\n%d = %d\n", i, t[i]);
 }

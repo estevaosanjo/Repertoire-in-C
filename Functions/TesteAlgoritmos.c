@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define TAM 31
 
 /*
 // Algoritmo de ordenação Merge Sort
@@ -73,10 +74,80 @@ int main(){
 }
 */ 
 
+void iniciar(int t[]){
+   int i;
+    for(i = 0; i< TAM ; i++)
+     t[i] = 0;
+}
+
+
+int funcaoHash(int chave){
+    return chave % TAM;
+}
+
+
+void inserir(int t[],int valor){
+    int indice = funcaoHash(valor);
+    while(t[indice] != 0){
+      indice = funcaoHash(indice + 1);
+    }
+     t[indice] = valor;
+}
+
+int busca(int t[], int chave){
+   
+    int busca = funcaoHash(chave);
+    while(t[busca] != 0){
+        if(t[busca] == chave)
+          return t[busca];
+        else 
+          busca = funcaoHash(busca+1);
+         
+    }
+    return 0;
+}
+
+
+void imprimir(int t[]){
+   int i;
+   for(i = 0; i<TAM; i++)
+    printf("\n%d = %d\n", i, t[i]);
+}
+
+
+
 int main(){
-    
-    char a[] = {"sssa"};
-    strlen(a);
-    printf("Array: %s", a);
+    int retorno, valor, opc, tabela[TAM];
+
+    iniciar(tabela);
+
+     do{
+        printf(" 0- Sair \t  1- Inserir \t  2- Buscar  \t  3- imprimir\n");
+        scanf("%i", &opc);
+
+        switch(opc){
+            case 1:
+             printf("Qual valor deseja inserir? ");
+             scanf("%d", &valor);
+             inserir(tabela, valor); 
+             break;
+            case 2:
+             printf("Qual valor deseja buscar? ");
+             scanf("%d", &valor);
+             retorno = busca(tabela, valor);
+             if(retorno != 0)
+               printf("Valor encontrado, %d\n", retorno);
+             else
+              printf("Valor não encontrado!");
+             break;
+            case 3:
+             imprimir(tabela);
+             break;
+            default: printf("Opção invalida!!");
+        }
+     } while(opc != 0);
+    //char a[] = {"sssa"};
+    //strlen(a);
+    //printf("Array: %s", a);
 
 }
