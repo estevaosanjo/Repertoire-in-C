@@ -24,7 +24,7 @@ int main(){
 
 void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int resultado){
    int i = 1; 
-   int tam;
+   char opc;
   
     for( int j = 0 ; j < 3 ; j++){
         mostrar[j].nm1= num1;
@@ -32,12 +32,16 @@ void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int r
         mostrar[j].nm2 = num2;
         mostrar[j].res = resultado;
       }
+
     printf("\nMostrar quantos calculos? ");
-    scanf("%d", &tam);
-    for(int j = 0 ; j < tam ; j++){
-        printf("\n| %d - Calculo: %d %c %d: %d\n", i++, mostrar[j].nm1, mostrar[j].oprd, mostrar[j].nm2, mostrar[j].res);
+    scanf("%s", &opc);
+    if(opc == 's' || opc == 'S'){
+      for(int j = 0 ; j < 4 ; j++){
+          printf("\n| %d - Calculo: %d %c %d: %d\n", i++, mostrar[j].nm1, mostrar[j].oprd, mostrar[j].nm2, mostrar[j].res);
+      }
     }
-    
+    else
+     printf("Programa finalizado!");
 }
 
 int fazerCalculos(){

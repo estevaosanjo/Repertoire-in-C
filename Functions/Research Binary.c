@@ -6,20 +6,16 @@
 void numbersAleatory(int numberRdm[], int tam);
 void SelectSort(int array[], int tam);
 void QuickSort(int array[], int tam);
+int BubbleSort(int array[], int tamanho);
 void impressao(int array[], int tam);
 int ResearchBinary(int n[], int tam, int valor);
-int BubbleSort(int array[], int tamanho);
-void iniciarHash(int t[], int tam);
-int funcaoHash(int chave, int tam);
-void inserirHash(int t[],int valor);
-int buscarHash(int t[], int chave);
-void imprimirHash(int t[], int tam);
 
 int main(){
 
   srand(time(NULL));
 
- int numeros[15];  
+
+ int numeros[30];  
  int tam = sizeof(numeros)/sizeof(numeros[0]);
  int opc, valorAleatorio, opcaobsc;
    
@@ -28,12 +24,13 @@ int main(){
   scanf("%d", &valorAleatorio);
 
   //Geração de números aleatórios, uma certa quantidade, entre 1 e 1000
-  numbersAleatory(numeros, tam);
+  
    
+  numbersAleatory(numeros, tam);
   
   //Escolha entre algoritmos de ordenação, aumente o tamanho do array, e será possivel ver a diferença de tempo de execução
-    printf("\n Ordenar a lista: \n");
-    printf(" 1- Selection | 2 - Bubble Sort | 3 - Quick Sort ");
+    printf("\nOrdenar a lista: \n");
+    printf("1- Selection \t | 2 - Bubble Sort \t | 3 - Quick Sort \t");
     scanf("%i", &opc);
       
     switch(opc){
@@ -44,21 +41,8 @@ int main(){
       case 3:
         QuickSort(numeros, tam); impressao(numeros, tam); break;
       }
-
-  //Escolha qual pode onde fazer a busca, hash ou binária
-  iniciarHash(numeros, tam);
-  inserirHash(numeros, numbersAleatory);
-  funcaoHash(numeros, tam);
-  
-  printf("Escolha 1 - Hash | 2 - Busca Binária ");
-  scanf("%i", &opcaobsc);
-    if(opcaobsc == 1)
-    printf("\n\nNumero: %d", buscarHash(numeros, tam)); 
-    else if(opcaobsc == 2)//A busca binária - busca o valor 120, em uma geração de números aleatórios, caso não encontre retorna -1
+    //A busca binária - busca o valor 120, em uma geração de números aleatórios, caso não encontre retorna -1
     printf("\n\nNumero: %d", ResearchBinary(numeros, tam, valorAleatorio));
-    else
-     printf("Opcao invalida");
-
 }
 
 int ResearchBinary(int n[], int tam, int valor){
@@ -85,7 +69,7 @@ void numbersAleatory(int numberRdm[], int tam){
 
     for (int i = 0; i < tam; i++){
         numberRdm[i] = rand() % (max - min + 1) + min;
-        printf(" | %d", numberRdm[i]);
+        //printf(" | %d", numberRdm[i]);
     }
 }
 
@@ -167,46 +151,4 @@ void impressao(int array[], int tam){
     printf("| %d ", array[i]);
   }
   printf("\n");
-}
-
-
-
-void iniciarHash(int t[], int tam){
-   int i;
-    for(i = 0; i< tam ; i++)
-     t[i] = 0;
-}
-
-
-int funcaoHash(int chave, int tam){
-    return chave % tam;
-}
-
-
-void inserirHash(int t[],int valor){
-    int indice = funcaoHash(valor);
-    while(t[indice] != 0){
-      indice = funcaoHash(indice + 1);
-    }
-     t[indice] = valor;
-}
-
-int buscarHash(int t[], int chave){
-   
-    int busca = funcaoHash(chave);
-    while(t[busca] != 0){
-        if(t[busca] == chave)
-          return t[busca];
-        else 
-          busca = funcaoHash(busca+1);
-         
-    }
-    return 0;
-}
-
-
-void imprimir(int t[], int tam){
-   int i;
-   for(i = 0; i<tam; i++)
-    printf("\n%d = %d\n", i, t[i]);
 }

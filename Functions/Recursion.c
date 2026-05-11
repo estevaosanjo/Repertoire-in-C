@@ -13,22 +13,61 @@ int maiorNumero(int*, int, int);
 void memoryAdress(int*, int);
 
 
+
+void iniciar(int t[], int tam);
+int funcaoHash(int chave,int tam);
+void inserir(int t[],int valor, int tam);
+int busca(int t[], int chave, int tam);
+void imprimir(int t[], int tam);
+
+
 int main()
 {
     srand(time(NULL));
 
-    int tam;
+    int tam, valor, retorno;
+    char opc;
     printf("Quantos numeros aleatorios? ");
     scanf("%d", &tam);
     
     int numeros[tam];
-    numbersRadom(numeros, tam);
+    int tabela[tam];
+
+    
+    numbersRadom(numeros,tam);
+    iniciar(tabela, tam);
+    
+    for(int i = 0; i < tam ; i++){
+        inserir(tabela,numeros[i], tam);
+    }
+    imprimir(tabela, tam);
+
+
     printf("\nO maior numero: %d", maiorNumero(numeros, tam, 0));
 
     int maior;
     maior = maiorNumero(numeros, tam, 0);
 
-    memoryAdress(numeros, maior);
+    memoryAdress(numeros, maior); 
+
+    
+    printf("\nBusca por algum numero (S/N): ");
+    scanf("%s", &opc);
+
+    if(opc == 'S' || opc == 's'){
+        printf("Qual valor deseja buscar? ");
+        scanf("%d", &valor);
+        retorno = busca(tabela, valor, tam);
+            if(retorno != 0)
+              printf("Valor encontrado, na posicao: %d\n", retorno);
+            else
+             printf("Valor não encontrado!");
+    }
+    else if(opc == 'N' || opc == 'n'){
+        printf("Programa finalizado!");
+    } else
+      printf("Opção inválida!");
+
 
     return 0;
 }
@@ -46,17 +85,15 @@ int main()
 }
 
 void numbersRadom(int numberRdm[], int tam){
-    int max = 1000;
+    int max = 10000;
     int min = 1;
 
     for (int i = 0; i < tam; i++){
         numberRdm[i] = rand() % (max - min + 1) + min;
-        printf(" %d |", numberRdm[i]);
     }
 }
 
 void memoryAdress(int v[], int indice){
-    
     char opc;
     printf("\nDescobrir o Endereco desse numero? (S/N) ");
     scanf(" %c", &opc);
@@ -71,3 +108,45 @@ void memoryAdress(int v[], int indice){
       }
 
 }    
+
+void iniciar(int t[], int tam){
+   int i;
+    for(i = 0; i< tam ; i++)
+     t[i] = 0;
+}
+
+
+int funcaoHash(int chave,int tam){
+    return chave % tam;
+
+}
+
+
+void inserir(int t[],int valor, int tam){
+    int indice = funcaoHash(valor, tam);
+    while(t[indice] != 0){
+      indice = funcaoHash(indice + 1, tam);
+    }
+     t[indice] = valor;
+}
+
+
+int busca(int t[], int chave, int tam){
+   
+    int busca = funcaoHash(chave, tam);
+    while(t[busca] != 0){
+        if(t[busca] == chave)
+          return busca;
+        else 
+          busca = funcaoHash(busca+1, tam);
+         
+    }
+    return -1;
+}
+
+
+void imprimir(int t[], int tam){
+   int i;
+   for(i = 0; i<tam; i++)
+    printf(" %d = %d |\n", i, t[i]);
+}
