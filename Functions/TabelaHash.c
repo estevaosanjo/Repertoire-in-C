@@ -2,13 +2,58 @@
 #include <stdlib.h>
 #include <string.h>
 
+//--------- Tabela Hash ---------
+
+void iniciar(int t[], int tam);
+int funcaoHash(int chave, int tam);
+void inserir(int t[],int valor, int tam);
+int busca(int t[], int chave, int tam);
+void imprimir(int t[], int tam);
+
+
+int main(){
+    int tam = 0;
+    printf("Tamanho da tabela: ");
+    scanf("%d", &tam);
+    int retorno, valor, opc, tabela[tam];
+
+    iniciar(tabela, tam);
+
+     do{
+        printf(" --------------------------------------------------------\n");
+        printf("0- Sair\t 1- Inserir Elementos\t  2- Buscar Elementos\t  3- imprimir Tabela\n");
+        scanf("%i", &opc);
+
+        switch(opc){
+            case 0:
+             return 0;
+            case 1:
+             printf("Qual valor deseja inserir? ");
+             scanf("%d", &valor);
+             inserir(tabela, valor, tam); 
+             break;
+            case 2:
+             printf("Qual valor deseja buscar? ");
+             scanf("%d", &valor);
+             retorno = busca(tabela, valor, tam);
+             if(retorno != 0)
+               printf("Valor encontrado, na posicao: %d \n", retorno);
+             else
+              printf("Valor não encontrado!");
+             break;
+            case 3:
+             imprimir(tabela, tam);
+             break;
+            default: printf("Opção invalida!!");
+        }
+     } while(opc != 0);
+}
 
 void iniciar(int t[], int tam){
    int i;
     for(i = 0; i< tam ; i++)
      t[i] = 0;
 }
-
 
 int funcaoHash(int chave, int tam){
     return chave % tam;
@@ -44,42 +89,3 @@ void imprimir(int t[], int tam){
 }
 
 
-
-int main(){
-    int tam = 0;
-    printf("Tamanho da tabela: ");
-    scanf("%d", &tam);
-    int retorno, valor, opc, tabela[tam];
-
-    iniciar(tabela, tam);
-
-     do{
-        printf(" 0- Sair \t  1- Inserir \t  2- Buscar  \t  3- imprimir\n");
-        scanf("%i", &opc);
-
-        switch(opc){
-            case 1:
-             printf("Qual valor deseja inserir? ");
-             scanf("%d", &valor);
-             inserir(tabela, valor, tam); 
-             break;
-            case 2:
-             printf("Qual valor deseja buscar? ");
-             scanf("%d", &valor);
-             retorno = busca(tabela, valor, tam);
-             if(retorno != 0)
-               printf("Valor encontrado, na posicao: %d \n", retorno);
-             else
-              printf("Valor não encontrado!");
-             break;
-            case 3:
-             imprimir(tabela, tam);
-             break;
-            default: printf("Opção invalida!!");
-        }
-     } while(opc != 0);
-    //char a[] = {"sssa"};
-    //strlen(a);
-    //printf("Array: %s", a);
-
-}

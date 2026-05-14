@@ -4,7 +4,6 @@
 
 // Calculadora
 // Sistema básico de calcúlos criados
-// Atribuir funções de retorno --
  typedef struct{
      double num1;
      double num2;
@@ -38,8 +37,7 @@
 
 // Limpar a tela
 void clearscreen(){ system("cls"); }
-    
-// Calculadora transformada em função    
+        
 void Calculadora(){
       
     double num1;
@@ -52,9 +50,9 @@ void Calculadora(){
         printf("\nDigite Nmr: ");
         scanf("%lf", &num1);
  
-        printf("\nOperacao - \t");
-        printf(" + | - | * | / \t: ");
-        scanf("%s", &opc);
+        printf("\nOperacao -");
+        printf("\t + | - | * | / :  ");
+        scanf(" %c", &opc);
         
         printf("\nDigite Nmr: ");
         scanf("%lf", &num2);
@@ -68,8 +66,8 @@ void Calculadora(){
         
     }
 }
-    // Função para fazer um novo calculo ou não
-    int maisCalculo(){
+
+int maisCalculo(){
     char opc;
  
     do {
@@ -90,8 +88,6 @@ void Calculadora(){
     
 int main()
 { 
-   //Função que chama calculadora e repete ela mesma
-   maisCalculo();
-    
- return 0;
+    maisCalculo();  
+    return 0;
 }
