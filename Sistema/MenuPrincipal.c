@@ -4,17 +4,25 @@
 #include <math.h>
 #include <inttypes.h>
 
+void clearscreen(){ system("cls"); }
+void MenuPrincipal();
 
+int main()
+{         
+  MenuPrincipal();
+  
+  return 0;
+}
+ 
 void MenuPrincipal() { 
     
   int opc;
 
    printf("\n");
-   printf(" Bem Vindo a nossa Assistente Virtual!! 😊 ");
-   printf("\n");
+   printf(" Bem Vindo a nossa Assistente Virtual!! 😊 \n");
    system("cls");
 
-   printf("\n Escolha uma opção para podemos te ajudar: \n");
+   printf("\n Escolha uma opçao para podemos te ajudar: \n");
    printf(" ");
    
    printf("\n 1 - Cadastrar");
@@ -48,15 +56,7 @@ void MenuPrincipal() {
       break;
 
      default:
-     printf(" Opção invalida - Digite novamente ");
+     printf(" Opcao invalida - Digite novamente ");
      
    }
 };
-
-int main()
-{         
-  MenuPrincipal();
-  
-  return 0;
-}
- 

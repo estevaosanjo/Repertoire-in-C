@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int validacaoidade(int ano, int idade){  
     if(ano >= 2009){

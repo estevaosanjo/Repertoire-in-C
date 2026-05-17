@@ -17,7 +17,6 @@ int fazerCalculos();
 int main(){
 
   fazerCalculos();
-
   return 0;
 }
 
