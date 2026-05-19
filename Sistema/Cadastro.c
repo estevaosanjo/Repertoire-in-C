@@ -25,7 +25,7 @@ typedef struct {
     char senha[20];
     char nome[20], email[50], cpf[11];
    } usuario;
-     usuario login;
+     usuario cliente;
 
    
 void cadastro(){
@@ -36,7 +36,7 @@ void cadastro(){
        printf("\n");
 
         printf("Nome: ");
-        scanf("%s", login.nome[20]);
+        scanf("%s", cliente.nome[20]);
         printf("\n");
 
         //printf("E-mail: ");
@@ -45,11 +45,11 @@ void cadastro(){
         printf("\n");
 
         printf("CPF (apenas numeros) : ");
-        scanf("%11s", login.cpf);
+        scanf("%11s", cliente.cpf);
         printf("\n");
 
         printf("Crie uma senha(max 20): ");
-        scanf("%20s", login.senha);
+        scanf("%20s", cliente.senha);
         system("cls");
 
 };
@@ -59,7 +59,7 @@ int main()
 
   cadastro();
 
-  printf("%s", login.nome);
+  printf("%s", cliente.nome);
   return 0;
 }
  
