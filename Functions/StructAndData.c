@@ -25,16 +25,17 @@ void mostrarCalculos(calculadora mostrar[20], int num1,char opr, int num2, int r
    int i = 1; 
    char opc;
   
-    for( int j = 0 ; j < 3 ; j++){
+
+    printf("\nMostrar quantos calculos? ");
+    scanf("%s", &opc);
+    if(opc == 's' || opc == 'S'){
+      for( int j = 0 ; j < 3 ; j++){
         mostrar[j].nm1= num1;
         mostrar[j].oprd = opr;
         mostrar[j].nm2 = num2;
         mostrar[j].res = resultado;
       }
 
-    printf("\nMostrar quantos calculos? ");
-    scanf("%s", &opc);
-    if(opc == 's' || opc == 'S'){
       for(int j = 0 ; j < 4 ; j++){
           printf("\n| %d - Calculo: %d %c %d: %d\n", i++, mostrar[j].nm1, mostrar[j].oprd, mostrar[j].nm2, mostrar[j].res);
       }

@@ -9,7 +9,7 @@
      double num2;
      double res;
      char operador;
- } calculos;
+ } calculos[10];
  calculos salvar;
 
 
@@ -36,55 +36,59 @@ int main()
 
 int somar(calculos salvar, double n1, double n2, int numerodeCalculos){      
         double res = n1 + n2 ;
+        int i;
         
-        salvar.operador = '+';
-        salvar.num1 = n1;
-        salvar.num2 = n2;
-        salvar.res = res;
+        salvar[i].operador = '+';
+        salvar[i].num1 = n1;
+        salvar[i].num2 = n2;
+        salvar[i].res = res;
 
         printf("\n\nSoma: %lf\n\n", res);
 
         printf(" %d \n", numerodeCalculos);
 
         
-        for(int i = 0; i < numerodeCalculos; i++){
-          printf(" %lf %c %lf = %lf\n", salvar.num1, salvar.operador, salvar.num2, salvar.res);
+        for(i = 0; i < numerodeCalculos; i++){
+          printf("Calculo %i: %lf %c %lf = %lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
         }
         return 0;
     }
 int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 - n2;
+        int i;
        
-        salvar.operador = '-';
-        salvar.num1 = n1;
-        salvar.num2 = n2;
-        salvar.res = res;
+        salvar[i].operador = '-';
+        salvar[i].num1 = n1;
+        salvar[i].num2 = n2;
+        salvar[i].res = res;
 
         printf("\n\nSubtração: %lf\n\n", res);
 
-       for(int i = 0; i < numerodeCalculos; i++){
-          printf(" %lf %c %lf = %lf\n", salvar.num1, salvar.operador, salvar.num2, salvar.res);
+       for(i = 0; i < numerodeCalculos; i++){
+          printf("Calculo %i: %lf %c %lf = %lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
         }
         return 0;
     }
 int multiplicar(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 * n2;
+        int i;
 
-        salvar.operador = '*';
-        salvar.num1 = n1;
-        salvar.num2 = n2;
-        salvar.res = res;
+        salvar[i].operador = '*';
+        salvar[i].num1 = n1;
+        salvar[i].num2 = n2;
+        salvar[i].res = res;
 
         printf("\n\nMultiplicação: %lf\n\n", res);
 
         for(int i = 0; i < numerodeCalculos; i++){
-          printf(" %lf %c %lf = %lf\n", salvar.num1, salvar.operador, salvar.num2, salvar.res);
+          printf("Calculo %i: %lf %c %lf = %lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
         }
         return 0;
     }   
 int dividir(calculos salvar,double n1, double n2, int numerodeCalculos){     
         // Verificando se o segundo numero é 0 -- Se for 'Diferente de' 0, executa:
         double res;
+        int i;
         if (n2 != 0 ){ 
             double res = n1 / n2; 
             printf("\n\nDivisão: %lf\n\n", res); } // Se for 0, exibe mensagem de erro
@@ -92,13 +96,13 @@ int dividir(calculos salvar,double n1, double n2, int numerodeCalculos){
             printf("Erro! "); 
         }
 
-        salvar.operador = '/';
-        salvar.num1 = n1;
-        salvar.num2 = n2;
-        salvar.res = res;
+        salvar[i].operador = '/';
+        salvar[i].num1 = n1;
+        salvar[i].num2 = n2;
+        salvar[i].res = res;
 
         for(int i = 0; i < numerodeCalculos; i++){
-          printf(" %lf %c %lf = %lf\n", salvar.num1, salvar.operador, salvar.num2, salvar.res);
+          printf("Calculo %i: %lf %c %lf = %lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
         }
         return 0;
     }
