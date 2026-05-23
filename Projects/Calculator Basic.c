@@ -33,8 +33,11 @@ void salvarCalculos(calculos salvar, double n1, char operador, double n2, int re
         salvar[contador].num2 = n2;
         salvar[contador].res = res;
 
+
+    printf("---- Historico de Calculos ----");
+    printf("\n\n");
     for(i = 0; i < numerodeCalculos; i++){
-          printf("Calculo %i: %lf %c %lf = %lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
+          printf("Calculo [%i] : %.0lf %c %.0lf = %.0lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
     }
 }
 
@@ -50,21 +53,21 @@ int main()
 int somar(calculos salvar, double n1, double n2, int numerodeCalculos){      
         double res = n1 + n2 ;
         char operador = '+';
-        printf("\n\nSoma: %lf\n\n", res);
+        printf("\n\tResultado: %lf\n\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }
 int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 - n2;
         char operador = '-';
-        printf("\n\nSubtração: %lf\n\n", res);
+        printf("\n\tResultado: %lf\n\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }
 int multiplicar(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 * n2;
         char operador = '*';
-        printf("\n\nMultiplicação: %lf\n\n", res);
+        printf("\n\tResultado: %lf\n\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }   
@@ -74,7 +77,7 @@ int dividir(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res;
         if (n2 != 0 ){ 
             res = n1 / n2; 
-            printf("\n\nDivisão: %lf\n\n", res); } // Se for 0, exibe mensagem de erro
+            printf("\n\tResultado: %lf\n\n", res); } // Se for 0, exibe mensagem de erro
         else { 
             printf("Erro! "); 
         }
@@ -92,15 +95,14 @@ void Calculadora(int numerodeCalculos){
 
         printf("Calculadora: \n");
         
-        printf("\nDigite Nmr: ");
+        printf("\nDigite NmrUm: ");
         scanf("%lf", &num1);
- 
-        printf("\nOperacao -");
-        printf("\t + | - | * | / :  ");
+        printf("Digite NmrDois: ");
+        scanf("%lf", &num2);
+        printf("\nOperacao ");
+        printf("+ | - | * | / : ");
         scanf(" %c", &opc);
         
-        printf("\nDigite Nmr: ");
-        scanf("%lf", &num2);
         
         switch (opc){    
         case '+': somar(salvar, num1,num2, numerodeCalculos); break; 
