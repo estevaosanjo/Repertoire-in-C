@@ -9,8 +9,12 @@
      double num2;
      double res;
      char operador;
- } calculos[10];
+ } calculos[100];
  calculos salvar;
+
+void salvarCalculos(calculos salvar, double n1, char operador, double n2, double res, int numerodeCalculos);
+void mostrarHistotico(int numerodeCalculos);
+int escolhaMain(int numerodeCalculos);
 
 int somar(calculos salvar,double n1, double n2, int numerodeCalculos);
 int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos);
@@ -24,28 +28,46 @@ int maisCalculo();
 // Limpar a tela
 void clearscreen(){ system("cls"); }
   
-void salvarCalculos(calculos salvar, double n1, char operador, double n2, int res, int numerodeCalculos){
-    int contador = numerodeCalculos-1; 
-    int i = 0;
-
-        salvar[contador].operador = operador;
-        salvar[contador].num1 = n1;
-        salvar[contador].num2 = n2;
-        salvar[contador].res = res;
-
-
-    printf("---- Historico de Calculos ----");
-    printf("\n\n");
-    for(i = 0; i < numerodeCalculos; i++){
-          printf("Calculo [%i] : %.0lf %c %.0lf = %.0lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
-    }
-}
 
 
 
 int main()
-{ 
-    maisCalculo();  
+{
+    int numerodeCalculos = 0;
+    int opc;
+
+    do {
+        printf("\n\n----- Menu -----\n\n");
+        printf("1- Novo Calculo\n");
+        printf("2- Historico de Calculos\n");
+        printf("3- Sair\n\n");
+        printf("\tEscolha: ");
+        scanf("%i", &opc);
+
+        switch(opc) {
+            case 1:
+                if (numerodeCalculos < 100) {
+                    Calculadora(numerodeCalculos);
+                    numerodeCalculos++;
+                } else {
+                    printf("\nLimite de 100 calculos atingido.\n");
+                }
+                break;
+
+            case 2:
+                mostrarHistotico(numerodeCalculos);
+                break;
+
+            case 3:
+                printf("\nObrigado por utilizar nossos servicos!\n");
+                break;
+
+            default:
+                printf("\nOpcao invalida!\n");
+        }
+
+    } while(opc != 3);
+
     return 0;
 }
 
@@ -53,21 +75,21 @@ int main()
 int somar(calculos salvar, double n1, double n2, int numerodeCalculos){      
         double res = n1 + n2 ;
         char operador = '+';
-        printf("\n\tResultado: %lf\n\n", res);
+        printf("\tResultado: %.0lf\n\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }
 int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 - n2;
         char operador = '-';
-        printf("\n\tResultado: %lf\n\n", res);
+        printf("\tResultado: %.0lf\n\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }
 int multiplicar(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 * n2;
         char operador = '*';
-        printf("\n\tResultado: %lf\n\n", res);
+        printf("\tResultado: %.0lf\n\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }   
@@ -77,11 +99,11 @@ int dividir(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res;
         if (n2 != 0 ){ 
             res = n1 / n2; 
-            printf("\n\tResultado: %lf\n\n", res); } // Se for 0, exibe mensagem de erro
-        else { 
+            printf("\tResultado: %.0lf\n\n", res);  // Se for 0, exibe mensagem de erro
+            salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
+        } else {
             printf("Erro! "); 
         }
-        salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
 
         return 0;
 }
@@ -93,14 +115,14 @@ void Calculadora(int numerodeCalculos){
 
     char opc;
 
-        printf("Calculadora: \n");
+        printf("\n--- Calculadora ---\n");
         
-        printf("\nDigite NmrUm: ");
+        printf("\nNumero: ");
         scanf("%lf", &num1);
-        printf("Digite NmrDois: ");
+        printf("Numero: ");
         scanf("%lf", &num2);
-        printf("\nOperacao ");
-        printf("+ | - | * | / : ");
+        printf("Operacao ");
+        printf("[ + | - | * | / ]: ");
         scanf(" %c", &opc);
         
         
@@ -111,28 +133,22 @@ void Calculadora(int numerodeCalculos){
         case '/': dividir(salvar, num1,num2, numerodeCalculos); break;
         default: printf("Escolha inválida!");
         
-    }
+        }
+}
+void salvarCalculos(calculos salvar, double n1, char operador, double n2, double res, int numerodeCalculos){
+    int contador = numerodeCalculos;
+        salvar[contador].operador = operador;
+        salvar[contador].num1 = n1;
+        salvar[contador].num2 = n2;
+        salvar[contador].res = res;
 }
 
-int maisCalculo(){
-    char opc;
-    int numerodeCalculos = 0;
- 
-    do {
-        numerodeCalculos = numerodeCalculos +1;
-        Calculadora(numerodeCalculos);
-
-
-        printf("\n\nDeseja fazer mais calculos?\n");
-        printf("SIM - S/s   NAO - N/n: ");
-        scanf(" %c", &opc);
-         if(opc == 's' || opc == 'S')
-
-        clearscreen();
-
-    } while(opc == 's' || opc == 'S');
-
-    printf("\n\nObrigado por utilizar nossos servicos!\n\n");
-
-    return 0;
-};
+void mostrarHistotico(int numerodeCalculos){
+    
+    printf("--------[ Historico de Calculos ]--------");
+    printf("\n\n");
+    for(int i = 0; i < numerodeCalculos; i++){
+          printf("Calculo [%i]:  %.0lf  %c  %.0lf  =  %.0lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
+    }
+      
+}
