@@ -5,12 +5,12 @@
 // Calculadora
 // Sistema básico de calcúlos criados
  typedef struct{
-     double num1;
-     double num2;
-     double res;
-     char operador;
- } calculos[100];
- calculos salvar;
+    double num1;
+    double num2;
+    double res;
+    char operador;
+ }calculos[100];
+calculos salvar;
 
 void salvarCalculos(calculos salvar, double n1, char operador, double n2, double res, int numerodeCalculos);
 void mostrarHistotico(int numerodeCalculos);
@@ -26,7 +26,7 @@ int maisCalculo();
     
 
 // Limpar a tela
-void clearscreen(){ system("cls"); }
+//void clearscreen(){ system("cls"); }
   
 
 
@@ -148,7 +148,7 @@ void mostrarHistotico(int numerodeCalculos){
     printf("--------[ Historico de Calculos ]--------");
     printf("\n\n");
     for(int i = 0; i < numerodeCalculos; i++){
-          printf("Calculo [%i]:  %.0lf  %c  %.0lf  =  %.0lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
+        printf("Calculo [%i]:  %.0lf  %c  %.0lf  =  %.0lf\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
     }
       
 }

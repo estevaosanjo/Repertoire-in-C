@@ -6,17 +6,21 @@
 
 
 #define yearAtual 2026
- 
- 
+  
 
- struct Usuario {
-    int Idade;
-    char Senha[20];
-    char Nome[20], email[50], CPF[11];
- };
+typedef struct Usuario{
+   int Idade;
+   char Senha[20];
+   char Nome[100], email[100], CPF[11];
+}Usuario;
+Usuario cliente;
 
- struct Usuario login;
+void validacaoLogin(Usuario cliente);
+int validacaoidade(int ano, int idade);
 
+int main(){
+   return 0;
+}
 
 int validacaoidade(int ano, int idade){  
     if(ano >= 2009){
@@ -27,43 +31,35 @@ int validacaoidade(int ano, int idade){
         return printf("Voce tem %i anos!", idade);
 };
 
-int ImpressaoIdade(){
-int dia, ano, mes, idade;
+void validacaoLogin(Usuario cliente) {
+    
+   Usuario login;
+   int chance= 3;
 
-  printf("Digite o dia ");
-  scanf("%i", &dia);
+      do{
+         printf(" -- Faca seu login --");
+         printf("\nEmail: ");
+         fgets(login.email, 50, stdin);
+         printf("Senha: ");
+         fgets(login.senha, 20, stdin);
 
-  printf("Digite o mês ");
-  scanf("%i", &mes); 
-
-  printf("Ano de nascimento ");
-  scanf("%i", &ano);
-
-   idade = yearAtual - ano;
- 
-      printf("\n%i/%i/%i \n", dia, mes, ano);
-
-   validacaoidade(ano, idade);
-  
-}
- void validacaoLogin() {
-    char email[50];
-    char senha[20];
-
-        printf("\nFaca o seu login: ");
-        printf("\nEmail: ");
-        scanf("%s", email);
-        printf("\nDigite a senha: ");
-        scanf("%s", senha);       
-        printf("\n");
-
-         //validação de e-mail & senha
-         if (strcmp(email, login.email)== 0 && strcmp(senha, login.Senha) == 0){
-             printf("Login realizado com sucesso!");
-             MOSTRAR_FICHA(login);
+         if((strcmp(login.email, login.email) == 0) && (strcmp(login.senha, login.senha)==0)){
+           printf("Login Efetuado com sucesso!\n\n");
+           imprimirCadastro(cliente);
+           chance = 0;
          }
-          else{
-              printf("e-mail ou senha invalido - tente novamente!");
-          }
-        
+         else { 
+            printf("\nErro!! Seu Email ou sua senha esta incorreto\n");
+            chance--;
+            printf("Voce tem %i tentativas. Caso exceda 3 sera bloqueado!\n\n", chance);
+         
+            if(chance == 0){
+            printf("\tSua conta foi bloqueada! Entre em contato com o suporte.");
+            }
+         
+         }
+
+  } while(chance != 0);
 };
+
+
