@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
-#include <inttypes.h>
 
 void clearscreen(){ system("cls"); }
 void MenuPrincipal();
@@ -22,41 +20,32 @@ void MenuPrincipal() {
    printf(" Bem Vindo a nossa Assistente Virtual!! 😊 \n");
    system("cls");
 
-   printf("\n Escolha uma opçao para podemos te ajudar: \n");
-   printf(" ");
-   
-   printf("\n 1 - Cadastrar");
-   printf("\n 2 - Fazer login ");
-   printf("\n 3 - Pesquisar produtos ");
-   printf("\n 4 - Sair \n");
-   
-   printf("\n");
-   scanf("%i", &opc);
-   
-   switch(opc){
-    case 1:
-     printf("\nNovo por aqui? Que legal, vamos realizar seu cadastro..\n");
-     //cadastro();
-     printf("Sua data de nascimento: ");
-      //ImpressaoIdade();
-       //validacaoLogin();
-     break;
-     
-    case 2:
-     printf("\nQue bom ter você de volta.. Insira os dados para logar: ");
-       //validacaoLogin();
-     break;
-     
-    case 3:
-     printf("\n Digite o nome do produto: ");
-     break;
-     
-    case 4:
-      printf("\n Obrigado pelo contanto. Sempre que precisar pode me chamar 😊 ");
-      break;
+  do{
+    printf("\n Escolha uma opcao: \n");
+    printf("\n 1 - Cadastrar");
+    printf("\n 2 - Fazer login ");
+    printf("\n 3 - Pesquisar servico");
+    printf("\n 0 - Sair \n");
+    
+    printf("\n");
+    scanf("%i", &opc);
+    
+    switch(opc){
+      case 1:
+       printf("\nNovo por aqui? Que legal, vamos realizar seu cadastro..\n");
+       break;
+      case 2:
+        //validacaoLogin();
+       break;
+      case 3:
+       printf("\n Buscar servico: ");
+       break;
+      case 0:
+        printf("\n Obrigado pelo contanto. Sempre que precisar pode me chamar 😊 ");
+        break;
+      default:
+       printf(" Opcao invalida - Digite novamente ");
+      }
+    } while(opc != 0);
 
-     default:
-     printf(" Opcao invalida - Digite novamente ");
-     
-   }
 };

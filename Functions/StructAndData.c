@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// --- Merge Sort ---
+// --- Struct with struct ---
 
 
  
