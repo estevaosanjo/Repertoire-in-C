@@ -26,7 +26,8 @@ int maisCalculo();
     
 
 // Limpar a tela
-//void clearscreen(){ system("cls"); }
+//void clearscreen(){ system("cls"); 
+
   
 
 

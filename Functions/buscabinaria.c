@@ -3,18 +3,18 @@
 #include <time.h>
 
 
-void numbersAleatory(int numberRdm[], int tam);
-void functionOrdenation(int numeros[], int tam);
+void numbersAleatory(int numberRdm[], int TAM_LISTA);
+void functionOrdenation(int numeros[], int TAM_LISTA);
 void clearscreen(){ system("cls"); }
 
-void SelectSort(int array[], int tam);
-void QuickSort(int array[], int tam);
+void SelectSort(int array[], int TAM_LISTA);
+void QuickSort(int array[], int TAM_LISTA);
 int BubbleSort(int array[], int tamanho);
 void merge(int lista[], int inicio, int meio, int fim);
 void mergeSort(int lista[], int inicio, int fim);
 
-void impressao(int array[], int tam);
-int ResearchBinary(int n[], int tam, int valor);
+void impressao(int array[], int TAM_LISTA);
+int ResearchBinary(int n[], int tam_LISTA, int valor);
 
 int main(){
 
@@ -22,7 +22,7 @@ int main(){
 
 
  int numeros[30];  
- int tam = sizeof(numeros)/sizeof(numeros[0]);
+ int TAM_LISTA = sizeof(numeros)/sizeof(numeros[0]);
  int valorAleatorio, opcao;
    
   do{
@@ -31,13 +31,13 @@ int main(){
     scanf("%d", &valorAleatorio);
     system("cls");
     
-    numbersAleatory(numeros, tam);
+    numbersAleatory(numeros, TAM_LISTA);
 
-    functionOrdenation(numeros, tam);
+    functionOrdenation(numeros, TAM_LISTA);
 
       //A busca binária - busca o valor 120, em uma geração de números aleatórios, caso não encontre retorna -1
-      if(valorAleatorio == ResearchBinary(numeros, tam, valorAleatorio)){
-        printf("\nParabens, voce acertou!! O numero: %d está na lista.\n", ResearchBinary(numeros, tam, valorAleatorio));
+      if(valorAleatorio == ResearchBinary(numeros, TAM_LISTA, valorAleatorio)){
+        printf("\nParabens, voce acertou!! O numero: %d está na lista.\n", ResearchBinary(numeros, TAM_LISTA, valorAleatorio));
         opcao = 0;
       } else{
           printf("\nVoce errou! Quer tentar novamente?\n\n");
@@ -51,7 +51,7 @@ int main(){
   printf("\n\nObrigador por utilizar nossos servicos!!\n\n");
 }
 
-void functionOrdenation(int numeros[], int tam){
+void functionOrdenation(int numeros[], int TAM_LISTA){
   //Geração de números aleatórios, uma certa quantidade, entre 1 e 1000
   int opc;
   
@@ -62,20 +62,20 @@ void functionOrdenation(int numeros[], int tam){
       
     switch(opc){
       case 1: 
-        SelectSort(numeros, tam); impressao(numeros, tam); break;
+        SelectSort(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
       case 2:
-        BubbleSort(numeros, tam); impressao(numeros, tam); break;
+        BubbleSort(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
       case 3:
-        QuickSort(numeros, tam); impressao(numeros, tam); break;
+        QuickSort(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
       case 4:
-        mergeSort(numeros,0, tam-1); impressao(numeros, tam); break;
+        mergeSort(numeros,0, TAM_LISTA-1); impressao(numeros, TAM_LISTA); break;
       }
 
 }
 
-int ResearchBinary(int n[], int tam, int valor){
+int ResearchBinary(int n[], int tam_LISTA, int valor){
     int inicio = 0;
-    int fim = tam-1;
+    int fim = tam_LISTA-1;
     
     while (inicio <= fim)
     {
@@ -91,24 +91,24 @@ int ResearchBinary(int n[], int tam, int valor){
     return -1;
 }
 
-void numbersAleatory(int numberRdm[], int tam){
+void numbersAleatory(int numberRdm[], int TAM_LISTA){
     int max = 1000;
     int min = 1;
     printf("\nValores gerados: \n");
-    for (int i = 0; i < tam; i++){
+    for (int i = 0; i < TAM_LISTA; i++){
         numberRdm[i] = rand() % (max - min + 1) + min;
         printf("%d - ", numberRdm[i]);
     }
 }
 
-void SelectSort(int array[], int tam){
+void SelectSort(int array[], int TAM_LISTA){
     int aux;
     int i,j;
 
-     for(i =0; i < tam ; i++){
+     for(i =0; i < TAM_LISTA ; i++){
 
        int indElem = i;
-      for(j = i + 1 ; j < tam ; j++){
+      for(j = i + 1 ; j < TAM_LISTA ; j++){
           if( array[j] < array[indElem]){
               indElem = j;
           }
@@ -138,19 +138,19 @@ int BubbleSort(int array[], int tamanho){
      return -1;
 }
 
-void QuickSort(int array[], int tam){
+void QuickSort(int array[], int TAM_LISTA){
    
   int i = 0;
   int k = 0;
   int pivo = array[0];
 
-  int menoresEsquerda[tam];
-  int maioresDireita[tam];
+  int menoresEsquerda[TAM_LISTA];
+  int maioresDireita[TAM_LISTA];
      
-    if(tam <= 1){
+    if(TAM_LISTA <= 1){
       return;
     } else {
-        for(int j = 1; j < tam; j++){
+        for(int j = 1; j < TAM_LISTA; j++){
           if(array[j] >= pivo){
             maioresDireita[k++] = array[j];
           } else{
@@ -173,9 +173,9 @@ void QuickSort(int array[], int tam){
       }
 }
 
-void impressao(int array[], int tam){
+void impressao(int array[], int TAM_LISTA){
   printf("\n");
-  for(int i = 0; i < tam ; i++){
+  for(int i = 0; i < TAM_LISTA ; i++){
     printf("%d - ", array[i]);
   }
   printf("\n");
