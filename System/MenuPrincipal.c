@@ -8,7 +8,6 @@ void MenuPrincipal();
 int main()
 {         
   MenuPrincipal();
-  
   return 0;
 }
  
@@ -33,16 +32,14 @@ void MenuPrincipal() {
     switch(opc){
       case 1:
         printf("\nNovo por aqui? Que legal, vamos realizar seu cadastro..\n");
-        Cadastro();
         break;
       case 2:
-        validacaoLogin();
         break;
       case 3:
         printf("\n Buscar servico: ");
         break;
       case 0:
-         printf("\n Obrigado pelo contanto. Sempre que precisar pode me chamar 😊 ");
+         printf("\n Obrigado pelo contanto. Sempre que precisar pode me chamar :) ");
          break;
       default:
          printf(" Opcao invalida - Digite novamente ");
