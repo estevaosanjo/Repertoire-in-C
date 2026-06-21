@@ -10,12 +10,21 @@ void mergeSort(int lista[], int inicio, int fim);
 void impressao(int array[], int tam);
 
 int main(){
-    int numberDesordanation[]={30, 23, 322, 33, 743, 1, 0, 4905, 86, 342, 15, 987, 123,
-                               56, 781, 29, 444, 3, 652, 89, 392, 999, 31, 39, 
-                               199, 874, 21, 555, 430, 76, 928, 310, 87, 502,
-                               11, 723, 48, 600, 275, 934, 167, 390, 8, 811,
-                               221, 470, 59, 150, 703, 42, 980, 266, 514, 18,
-                               647, 91, 333, 720, 5, 880, 124, 461, 299, 771
+    int numberDesordanation[]={7.00, 8.50, 13.00,
+          21.00,
+          34.00,
+          21.00,
+          15.00,
+          12.00,
+          4.33,
+          8.50,
+          21.00,
+          41.00,
+          15.00,
+          29.00,
+          51.00,
+          101.00
+
   };
     int tam = sizeof(numberDesordanation)/sizeof(numberDesordanation[0]);
     int opc, op;

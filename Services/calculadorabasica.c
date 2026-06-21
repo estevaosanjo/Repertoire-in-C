@@ -34,7 +34,6 @@ int main(){
     int opc;
 
     do {
-        system("cls");
         printf("\n\t-----[ Menu ]-----\n\n");
         printf("1- Novo Calculo\n");
         printf("2- Historico de Calculos\n");
@@ -57,6 +56,7 @@ int main(){
                 break;
 
             case 3:
+
                 printf("\nObrigado por utilizar nossos servicos!\n");
                 break;
 
@@ -74,21 +74,24 @@ int main(){
 int somar(calculos salvar, double n1, double n2, int numerodeCalculos){      
         double res = n1 + n2 ;
         char operador = '+';
-        printf("\n\tResultado: %.0lf\n\n", res);
+        printf("\n-----[ Resultado: %.0lf ]-----\n", res);
+        printf("\n\n\n");
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }
 int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 - n2;
         char operador = '-';
-        printf("\n\tResultado: %.0lf\n\n", res);
+        printf("\n-----[ Resultado: %.0lf ]-----\n", res);
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
+        printf("\n\n\n");
         return 0;
 }
 int multiplicar(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res = n1 * n2;
         char operador = '*';
-        printf("\n\tResultado: %.0lf\n\n", res);
+        printf("\n-----[ Resultado: %.0lf ]-----\n", res);
+        printf("\n\n\n");
         salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         return 0;
 }   
@@ -98,10 +101,12 @@ int dividir(calculos salvar,double n1, double n2, int numerodeCalculos){
         double res;
         if (n2 != 0 ){ 
             res = n1 / n2; 
-            printf("\n\tResultado: %.0lf\n\n", res);  // Se for 0, exibe mensagem de erro
+            printf("\n-----[ Resultado: %.0lf ]-----\n", res);  // Se for 0, exibe mensagem de erro
+            printf("\n\n\n");
             salvarCalculos(salvar, n1,operador, n2, res, numerodeCalculos);
         } else {
-            printf("Erro! "); 
+            printf("Erro! ");
+            printf("\n\n");
         }
 
         return 0;
@@ -113,7 +118,7 @@ void Calculadora(int numerodeCalculos){
     double num2;
 
     char opc;
-
+        system("cls");
         printf("\n-----[ Calculadora ]-----\n");
         
         printf("\nNumero: ");
