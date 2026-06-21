@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Cadastro.c"
 
-void clearscreen(){ system("cls"); }
+
 void MenuPrincipal();
 
 int main()
@@ -32,6 +33,7 @@ void MenuPrincipal() {
     switch(opc){
       case 1:
         printf("\nNovo por aqui? Que legal, vamos realizar seu cadastro..\n");
+        cadastrocliente();
         break;
       case 2:
         break;
