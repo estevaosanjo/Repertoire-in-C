@@ -34,11 +34,11 @@ int main(){
     int opc;
 
     do {
-        printf("\n\t-----[ Menu ]-----\n\n");
+        printf("\n-----[ Menu ]-----\n\n");
         printf("1- Novo Calculo\n");
         printf("2- Historico de Calculos\n");
         printf("3- Sair\n\n");
-        printf("\tEscolha: ");
+        printf("  Escolha: ");
         scanf("%i", &opc);
 
         switch(opc) {
@@ -147,12 +147,11 @@ void salvarCalculos(calculos salvar, double n1, char operador, double n2, double
         salvar[contador].res = res;
 }
 
-void mostrarHistotico(int numerodeCalculos){
-    
+void mostrarHistotico(int numerodeCalculos){ 
     printf("\n\t--------[ Historico de Calculos ]--------");
     printf("\n\n");
     for(int i = 0; i < numerodeCalculos; i++){
-        printf("\t - Calculo [%i]:  %.0lf  %c  %.0lf  =  %.0lf -\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
+        printf("\t| Calculo [%i]:  %.0lf  %c  %.0lf  =  %.0lf |\n", i+1, salvar[i].num1, salvar[i].operador, salvar[i].num2, salvar[i].res);
     }
-      
+    printf("\n\n\n");
 }

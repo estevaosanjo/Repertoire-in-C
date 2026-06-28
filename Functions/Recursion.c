@@ -27,12 +27,18 @@ int main()
 
     int tam, valor, retorno;
     char opc;
-    printf("Quantos numeros aleatorios? ");
+
+while(tam <= 0){
+    printf("\n===== Funcao recursiva =====\n");
+
+    printf("\nQuantidade de numeros aleatorios: ");
     scanf("%d", &tam);
-    
+    if(tam <= 0){
+        printf("\nQuantidade invalida!\n\n");  
+    }
+}
     int numeros[tam];
     int tabela[tam];
-
     
     numbersRadom(numeros,tam);
     iniciar(tabela, tam);
@@ -42,8 +48,7 @@ int main()
     }
     imprimir(tabela, tam);
 
-
-    printf("\nO maior numero: %d", maiorNumero(numeros, tam, 0));
+    printf("\nO maior numero: %d\n", maiorNumero(numeros, tam, 0));
 
     int maior;
     maior = maiorNumero(numeros, tam, 0);
@@ -64,9 +69,9 @@ int main()
              printf("Valor não encontrado!");
     }
     else if(opc == 'N' || opc == 'n'){
-        printf("Programa finalizado!");
+        printf("\n\tPrograma finalizado!");
     } else
-      printf("Opção inválida!");
+      printf("\nOpção inválida!");
 
 
     return 0;
@@ -85,7 +90,7 @@ int main()
 }
 
 void numbersRadom(int numberRdm[], int tam){
-    int max = 10000;
+    int max = 1000;
     int min = 1;
 
     for (int i = 0; i < tam; i++){
@@ -132,7 +137,6 @@ void inserir(int t[],int valor, int tam){
 
 
 int busca(int t[], int chave, int tam){
-   
     int busca = funcaoHash(chave, tam);
     while(t[busca] != 0){
         if(t[busca] == chave)
@@ -147,6 +151,7 @@ int busca(int t[], int chave, int tam){
 
 void imprimir(int t[], int tam){
    int i;
+   printf("\n\n");
    for(i = 0; i<tam; i++)
-    printf(" %d = %d |\n", i, t[i]);
+    printf("[%d] - %d \n", i, t[i]);
 }

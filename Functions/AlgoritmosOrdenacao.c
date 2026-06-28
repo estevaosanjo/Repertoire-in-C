@@ -27,18 +27,30 @@ int main(){
 
   };
     int tam = sizeof(numberDesordanation)/sizeof(numberDesordanation[0]);
-    int opc, op;
-    printf("\nLista desordenada: ");
-    for(int i = 0; i < tam ; i++){      
-    printf(" %d  ", numberDesordanation[i]);
-    }
-    printf("\n");
+    int opc, op, op1;
 
-    printf("\nO que deseja? \n");
+    printf("\n----------------------------\n");
+    printf("\n1- Mostrar lista   2- Pular\t");
+    scanf("%i", &op1);
+    if(op1 == 1){
+      printf("\nLista desordenada: ");
+      for(int i = 0; i < tam ; i++){      
+      printf(" %d  ", numberDesordanation[i]);
+      }
+      printf("\n");
+    }
+
+    printf("\n----------------------------\n");
+    printf("\nEscolha um servico: \n");
     printf("1- Buscar maior numero \n");
     printf("2- Ordenar a lista \n");
+    printf("0- Sair");
     scanf("%i", &opc);
     switch(opc){
+    case 0:
+      printf("Programa finalizado!");
+      return -1;
+      break;
     case 1: 
        printf(" %d", buscarMaiorNumero(numberDesordanation,tam));
        break;
@@ -57,10 +69,9 @@ int main(){
          impressao(numberDesordanation, tam);
       }
       else 
-        printf("Opção Inválida!");
+        printf("Opcao invalida!");
       break;
-
-    default: printf("\nOpção inválida!\n");
+    default: printf("\nOpcao invalida!\n");
     return 0;
     }
 }

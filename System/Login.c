@@ -21,7 +21,7 @@ int main() {
 
     if((strcmp(cad.email, cads.email) == 0) && (strcmp(cad.senha, cads.senha)==0)){
       printf("Login Efetuado com sucesso!\n\n");
-      imprimirCadastro(cliente);
+      //imprimirCadastro(cliente);
       chance = 0;
     } else { 
         printf("\nErro!! Seu Email ou sua senha esta incorreto\n");

@@ -13,38 +13,39 @@ void imprimir(int t[], int tam);
 
 int main(){
     int tam = 0;
-    printf("Tamanho da tabela: ");
+    printf("\n\n------- Tabela Hash -------\n\n\n");
+    printf("Quantidade de elementos: ");
     scanf("%d", &tam);
     int retorno, valor, opc, tabela[tam];
 
     iniciar(tabela, tam);
 
      do{
-        printf(" --------------------------------------------------------\n");
-        printf("0- Sair\t 1- Inserir Elementos\t  2- Buscar Elementos\t  3- imprimir Tabela\n");
+        printf("\n\n--------------------------------------------------------\n\n");
+        printf("\t\n 1- Inserir Elementos\t\n 2- Buscar Elementos\t\n 3- imprimir Tabela\t\n\t0 - Sair\n");
         scanf("%i", &opc);
 
         switch(opc){
             case 0:
-             return 0;
+             return printf("\n\nObrigador por utilizar nossos servicos!!\n\n");
             case 1:
-             printf("Qual valor deseja inserir? ");
+             printf("\n\nQual valor deseja inserir? ");
              scanf("%d", &valor);
              inserir(tabela, valor, tam); 
              break;
             case 2:
-             printf("Qual valor deseja buscar? ");
+             printf("\n\nQual valor deseja buscar? ");
              scanf("%d", &valor);
              retorno = busca(tabela, valor, tam);
-             if(retorno != 0)
-               printf("Valor encontrado, na posicao: %d \n", retorno);
+             if(retorno != -1)
+               printf("\n\nValor encontrado, na posicao: %d \n\n", retorno);
              else
-              printf("Valor não encontrado!");
+              printf("\n\nValor nao encontrado!");
              break;
             case 3:
              imprimir(tabela, tam);
              break;
-            default: printf("Opção invalida!!");
+            default: printf("Opcao invalida!!");
         }
      } while(opc != 0);
 }

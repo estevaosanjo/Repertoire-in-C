@@ -12,7 +12,7 @@ int main() {
     struct tm *pTime = NULL;
     bool isRunning = true;
 
-    printf("DIGITAL CLOCK\n");
+    printf("\n\nDigital Clock\n");
 
     while(isRunning){
         
