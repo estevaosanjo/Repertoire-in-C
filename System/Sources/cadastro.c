@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "cadastro.h"
 
 #define year 2026
 #define CPF(cliente) printf("\tCPF: %.3s.%.3s.%.3s-%.2s ", cliente.cpf, cliente.cpf + 3, cliente.cpf + 6, cliente.cpf + 9);
@@ -8,23 +9,10 @@
 
 void clearscreen(){ system("cls"); }
 
-typedef struct{
-  int dia, mes, ano;
-} DataNas;
-DataNas dnas;
-
-typedef struct {
-  char nome[100],  cpf[11];
-  int idade;
-}usuario;
 usuario cliente;
-
-typedef struct {
-  char senha[20];
-  char email[50];
-  DataNas LerData;
-}cadastro;
+DataNas dnas;
 cadastro cad;
+
 
    
 void cadastrocliente(){
@@ -61,7 +49,7 @@ void imprimirClientes(usuario cliente){
   CPF(cliente);
 }
 
-
+/*
 int main(){
 
   char opc;
@@ -76,3 +64,4 @@ int main(){
     printf("Programa Finalizado!");
   return 0;
 }
+*/

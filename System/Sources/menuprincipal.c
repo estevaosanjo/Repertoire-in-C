@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Cadastro.c"
+#include "cadastro.h"
 
 
 void MenuPrincipal();
 
-int main()
-{         
+int main () {         
   MenuPrincipal();
   return 0;
 }

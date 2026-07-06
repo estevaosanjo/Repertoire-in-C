@@ -82,3 +82,32 @@ int main(){
     return 0;
 }
 */
+
+void lista(int lista[], int tam){
+   lista[tam-1] = "Você";
+}
+
+void verificacao(int lista_vizinhos[], int tam){
+    bool m;
+    int i =0;
+
+    for(i; i< tam-1; i++){
+        if(lista_vizinhos[tam-i]){
+            return lista_vizinhos[tam-1];
+        }
+        else{
+            i--;
+            lista_vizinhos[tam-i];
+            if(i > tam){
+                printf("Não foi encontrado!");
+            }
+        }
+    }
+}
+
+
+
+int main (){
+
+    return 0;
+}
