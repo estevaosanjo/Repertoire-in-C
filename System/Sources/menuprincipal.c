@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cadastro.h"
+#include "digitalclock.h"
 
 
 void MenuPrincipal();
@@ -16,6 +17,7 @@ void MenuPrincipal() {
   int opc;
 
    printf("\n");
+   clock();
    printf(" Bem Vindo a nossa Assistente Virtual!! 😊 \n");
    system("cls");
 

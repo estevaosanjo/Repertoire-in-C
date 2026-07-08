@@ -4,15 +4,13 @@
 #include <unistd.h>
 #include <windows.h>
 
-int main() {
-
+int main () {
     // DIGITAL CLOCK
-
     time_t rawtime = 0; // Jan 1 1970 (Epoch)
     struct tm *pTime = NULL;
     bool isRunning = true;
 
-    printf("\n\nDigital Clock\n");
+    printf("\n\nRelogio Digital\n");
 
     while(isRunning){
         
@@ -24,7 +22,4 @@ int main() {
         
         Sleep(1000);
     }
-
-    return 0;
-
 }
