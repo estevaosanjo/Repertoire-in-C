@@ -7,7 +7,8 @@
 
 void MenuPrincipal();
 
-int main () {         
+int main () {  
+  dgtClock();       
   MenuPrincipal();
   return 0;
 }
@@ -17,7 +18,6 @@ void MenuPrincipal() {
   int opc;
 
    printf("\n");
-   clock();
    printf(" Bem Vindo a nossa Assistente Virtual!! 😊 \n");
    system("cls");
 

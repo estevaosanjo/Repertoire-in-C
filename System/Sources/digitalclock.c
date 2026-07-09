@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <windows.h>
 
-int main () {
+void dgtClock() {
     // DIGITAL CLOCK
     time_t rawtime = 0; // Jan 1 1970 (Epoch)
     struct tm *pTime = NULL;
