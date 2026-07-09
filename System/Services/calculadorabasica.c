@@ -1,34 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "calculadorabasica.h"
 
 // Calculadora
 // Sistema básico de calcúlos criados
- typedef struct{
-    double num1;
-    double num2;
-    double res;
-    char operador;
- }calculos[100];
 calculos salvar;
 
-void clearscreen(){ system("cls");} 
-void salvarCalculos(calculos salvar, double n1, char operador, double n2, double res, int numerodeCalculos);
-void mostrarHistotico(int numerodeCalculos);
-int escolhaMain(int numerodeCalculos);
-
-int somar(calculos salvar,double n1, double n2, int numerodeCalculos);
-int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos);
-int multiplicar(calculos salvar,double n1, double n2, int numerodeCalculos);
-int dividir(calculos salvar,double n1, double n2, int numerodeCalculos);
-
-void Calculadora(int numerodeCalculos);
-int maisCalculo();
-  
-
-
-
-int main(){
+void Calculadora(){
 
     int numerodeCalculos = 0;
     int opc;
@@ -44,7 +23,7 @@ int main(){
         switch(opc) {
             case 1:
                 if (numerodeCalculos < 100) {
-                    Calculadora(numerodeCalculos);
+                    iniciarCalc(numerodeCalculos);
                     numerodeCalculos++;
                 } else {
                     printf("\nLimite de 100 calculos atingido.\n");
@@ -66,7 +45,7 @@ int main(){
 
     } while(opc != 3);
 
-    return 0;
+    return;
 
 }
 
@@ -112,7 +91,7 @@ int dividir(calculos salvar,double n1, double n2, int numerodeCalculos){
         return 0;
 }
 
-void Calculadora(int numerodeCalculos){
+void iniciarCalc(int numerodeCalculos){
       
     double num1;
     double num2;
