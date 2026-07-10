@@ -3,6 +3,7 @@
 #include <string.h>
 #include "cadastro.h"
 #include "digitalclock.h"
+#include "services.h"
 
 
 void MenuPrincipal();
@@ -40,8 +41,7 @@ void MenuPrincipal() {
         //login();
         break;
       case 3:
-        printf("\n Buscar servico: ");
-        //servicos();
+        servicos();
         break;
       case 0:
          printf("\n Obrigado pelo contanto. Sempre que precisar pode me chamar :) ");

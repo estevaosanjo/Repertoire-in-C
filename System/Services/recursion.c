@@ -2,18 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include "recursion.h"
 
-//Gerar numeros pseudo-aleatórios
+
 void numbersRadom(int*, int);
-
-//Busca do maior número usando recursão
 int maiorNumero(int*, int, int);
-
-//Mostrar o endereço na memória
 void memoryAdress(int*, int);
-
-
-
 void iniciar(int t[], int tam);
 int funcaoHash(int chave,int tam);
 void inserir(int t[],int valor, int tam);
@@ -21,8 +15,7 @@ int busca(int t[], int chave, int tam);
 void imprimir(int t[], int tam);
 
 
-int main()
-{
+void recursion() {
     srand(time(NULL));
 
     int tam, valor, retorno;
@@ -73,8 +66,7 @@ while(tam <= 0){
     } else
       printf("\nOpção inválida!");
 
-
-    return 0;
+    return;
 }
 
  int maiorNumero(int v[], int tam, int i)

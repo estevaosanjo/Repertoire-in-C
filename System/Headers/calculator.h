@@ -1,5 +1,5 @@
-#ifndef CALCULADORABASICA_H
-#define CALCULADORABASICA_H
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
 
  typedef struct{
     double num1;
@@ -17,8 +17,8 @@ int subtrair(calculos salvar,double n1, double n2, int numerodeCalculos);
 int multiplicar(calculos salvar,double n1, double n2, int numerodeCalculos);
 int dividir(calculos salvar,double n1, double n2, int numerodeCalculos);
 
-void iniciarCalc(int numerodeCalculos);
-void Calculadora();
+void iniciarCalc(int numerodeCalculos); //repeat
+void Calculadora(); //start
 int maisCalculo();
 
 

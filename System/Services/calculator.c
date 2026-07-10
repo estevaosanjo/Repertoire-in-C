@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "calculadorabasica.h"
+#include "calculator.h"
 
 // Calculadora
-// Sistema básico de calcúlos criados
+// Sistema básico de operações
+// Histórico de cálculos
+// Menu de interação
+
 calculos salvar;
 
 void Calculadora(){

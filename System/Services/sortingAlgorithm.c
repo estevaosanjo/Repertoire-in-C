@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "sortingAlgorithm.h"
 
 int buscarMaiorNumero(int v[], int tam);
 void SelectSort(int array[], int tam);
@@ -7,9 +8,9 @@ void BubbleSort(int array[], int tamanho);
 void QuickSort(int array[], int tam);
 void merge(int lista[], int inicio, int meio, int fim);
 void mergeSort(int lista[], int inicio, int fim);
-void impressao(int array[], int tam);
+void impressaoSort(int array[], int tam);
 
-int main(){
+void startSorting(){
     int numberDesordanation[]={7.00, 8.50, 13.00,
           21.00,
           34.00,
@@ -49,7 +50,7 @@ int main(){
     switch(opc){
     case 0:
       printf("Programa finalizado!");
-      return -1;
+      return;
       break;
     case 1: 
        printf(" %d", buscarMaiorNumero(numberDesordanation,tam));
@@ -63,16 +64,16 @@ int main(){
          BubbleSort(numberDesordanation, tam);
       } else if(op == 3){
          QuickSort(numberDesordanation, tam);
-         impressao(numberDesordanation, tam);
+         impressaoSort(numberDesordanation, tam);
       } else if(op == 4){
          mergeSort(numberDesordanation, 0, tam-1);
-         impressao(numberDesordanation, tam);
+         impressaoSort(numberDesordanation, tam);
       }
       else 
         printf("Opcao invalida!");
       break;
     default: printf("\nOpcao invalida!\n");
-    return 0;
+      return ;
     }
 }
 
@@ -200,7 +201,7 @@ void mergeSort(int lista[], int inicio, int fim){
     }
 }
 
-void impressao(int array[], int tam){
+void impressaoSort(int array[], int tam){
   printf("\n");
   for(int i = 0; i < tam ; i++){
     printf("| %d ", array[i]);

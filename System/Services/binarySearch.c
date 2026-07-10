@@ -1,22 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "binarySearch.h"
 
 
 void numbersAleatory(int numberRdm[], int TAM_LISTA);
 void functionOrdenation(int numeros[], int TAM_LISTA);
 void clearscreen(){ system("cls"); }
 
-void SelectSort(int array[], int TAM_LISTA);
-void QuickSort(int array[], int TAM_LISTA);
-int BubbleSort(int array[], int tamanho);
-void merge(int lista[], int inicio, int meio, int fim);
-void mergeSort(int lista[], int inicio, int fim);
+void SelectSrt(int array[], int TAM_LISTA);
+void QuickSrt(int array[], int TAM_LISTA);
+void BubbleSrt(int array[], int tamanho);
+void mergeSrt(int lista[], int inicio, int meio, int fim);
+void mrgSort(int lista[], int inicio, int fim);
 
 void impressao(int array[], int TAM_LISTA);
 int ResearchBinary(int n[], int tam_LISTA, int valor);
 
-int main(){
+void startSearchBi(){
 
   srand(time(NULL));
 
@@ -62,13 +63,13 @@ void functionOrdenation(int numeros[], int TAM_LISTA){
       
     switch(opc){
       case 1: 
-        SelectSort(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
+        SelectSrt(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
       case 2:
-        BubbleSort(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
+        BubbleSrt(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
       case 3:
-        QuickSort(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
+        QuickSrt(numeros, TAM_LISTA); impressao(numeros, TAM_LISTA); break;
       case 4:
-        mergeSort(numeros,0, TAM_LISTA-1); impressao(numeros, TAM_LISTA); break;
+        mrgSort(numeros,0, TAM_LISTA-1); impressao(numeros, TAM_LISTA); break;
       }
 
 }
@@ -101,7 +102,7 @@ void numbersAleatory(int numberRdm[], int TAM_LISTA){
     }
 }
 
-void SelectSort(int array[], int TAM_LISTA){
+void SelectSrt(int array[], int TAM_LISTA){
     int aux;
     int i,j;
 
@@ -122,7 +123,7 @@ void SelectSort(int array[], int TAM_LISTA){
     
 }
 
-int BubbleSort(int array[], int tamanho){
+void BubbleSrt(int array[], int tamanho){
      int aux;
      for(int i = 0; i < tamanho; i++){
 
@@ -135,10 +136,10 @@ int BubbleSort(int array[], int tamanho){
           }
      }
     }     
-     return -1;
+     return;
 }
 
-void QuickSort(int array[], int TAM_LISTA){
+void QuickSrt(int array[], int TAM_LISTA){
    
   int i = 0;
   int k = 0;
@@ -157,8 +158,8 @@ void QuickSort(int array[], int TAM_LISTA){
             menoresEsquerda[i++] = array[j];
             }
         }
-          QuickSort(menoresEsquerda, i);
-          QuickSort(maioresDireita, k);
+          QuickSrt(menoresEsquerda, i);
+          QuickSrt(maioresDireita, k);
           
             int indice = 0;
             for(int j = 0; j < i ; j++){
@@ -182,7 +183,7 @@ void impressao(int array[], int TAM_LISTA){
 }
 
 
-void merge(int lista[], int inicio, int meio, int fim){
+void mergeSrt(int lista[], int inicio, int meio, int fim){
  int i, j, k, n1 = meio - inicio + 1;
  int n2 = fim - meio;
 
@@ -210,12 +211,12 @@ void merge(int lista[], int inicio, int meio, int fim){
  free(esquerda);
  free(direita);
 }
-void mergeSort(int lista[], int inicio, int fim){
+void mrgSort(int lista[], int inicio, int fim){
     if(inicio < fim){
      int meio =(inicio + fim)/2 ;
 
-     mergeSort(lista, inicio, meio);
-     mergeSort(lista, meio+1, fim);
-     merge(lista, inicio, meio, fim);
+     mrgSort(lista, inicio, meio);
+     mrgSort(lista, meio+1, fim);
+     mergeSrt(lista, inicio, meio, fim);
     }
 }
