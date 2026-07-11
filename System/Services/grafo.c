@@ -23,7 +23,7 @@ void adicionarVert(Grafo * g){
 
 }
 
-void verificarVert(int vertice, int numVertice){
+int verificarVert(int vertice, int numVertice){
     if(vertice >= 0 && vertice < numVertice){
         return 1;
     } else
@@ -39,7 +39,7 @@ void imprimirGrafo(Grafo * g){
     }
 }
 
-
+/*
 int main(){
     Grafo grafo;
 
@@ -48,3 +48,4 @@ int main(){
 
     return 0;
 }
+*/

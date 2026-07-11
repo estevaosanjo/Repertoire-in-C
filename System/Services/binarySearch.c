@@ -6,7 +6,7 @@
 
 void numbersAleatory(int numberRdm[], int TAM_LISTA);
 void functionOrdenation(int numeros[], int TAM_LISTA);
-void clearscreen(){ system("cls"); }
+static void clearscreen(){ system("cls"); }
 
 void SelectSrt(int array[], int TAM_LISTA);
 void QuickSrt(int array[], int TAM_LISTA);

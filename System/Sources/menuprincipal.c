@@ -8,8 +8,7 @@
 
 void MenuPrincipal();
 
-int main () {  
-  dgtClock();       
+int main () {         
   MenuPrincipal();
   return 0;
 }

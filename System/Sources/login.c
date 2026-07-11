@@ -1,13 +1,18 @@
-#include <stdio.h>
+/* #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Cadastro.c"
+#include "cadastro.h"
 
 
 #define yearAtual 2026
+
+usuario cliente;
+DataNas dnas;
+cadastro cad;
+
   
 
-int main() {         
+void loginVerificacao() {         
   int chance= 3;
   cadastro cads;
   cadastrocliente();
@@ -35,5 +40,6 @@ int main() {
 
   }while(chance != 0);
 
-  return 0;
+  return;
 }
+*/

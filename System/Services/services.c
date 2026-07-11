@@ -21,8 +21,9 @@ void servicos(){
     scanf("%i", &opcao);
     switch(opcao){
     case 0:
-     return printf("Obrigador por utilizar nossos serviços!");
-     break;
+        printf("Obrigador por utilizar nossos serviços!");
+        return;
+        break;
     case 1:
         Calculadora();
     case 2:
@@ -36,7 +37,7 @@ void servicos(){
     case 6:
         startSorting();
     default:
-     printf("Opcao invalida!! Tente novamente..");
+        printf("Opcao invalida!! Tente novamente..");
     }
 
     return;
