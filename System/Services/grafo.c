@@ -19,8 +19,10 @@ void inicializar(Grafo * g){
 }
 
 void adicionarVert(Grafo * g){
-
-
+    if(g->numVertice < QTD_vertice){
+        g->numVertice++;
+    } else
+        printf("Nao foi possivel adicionar vertice!\n");
 }
 
 int verificarVert(int vertice, int numVertice){
@@ -28,6 +30,23 @@ int verificarVert(int vertice, int numVertice){
         return 1;
     } else
         return 0;
+}
+
+void adicionarAresta(Grafo *g, int vertice1, int vertice2){
+    if(verificarVert(vertice1, g->numVertice) && verificarVert(vertice2, g->numVertice)){
+        g->matriz[vertice1][vertice2] = 1;
+        g->matriz[vertice2][vertice1] = 1;
+    }
+    else
+        printf("Nao foi possivel adicionar aresta!\n");
+}
+
+void removerAresta(Grafo * g, int vertice1, int vertice2){
+    if(verificarVert(vertice1, g->numVertice) && verificarVert(vertice2, g->numVertice)){
+        g->matriz[vertice1][vertice2] = 0;
+        g->matriz[vertice2][vertice1] = 0;
+    } else
+        printf("Nao foi possivel remover aresta!\n");
 }
 
 void imprimirGrafo(Grafo * g){
@@ -39,13 +58,16 @@ void imprimirGrafo(Grafo * g){
     }
 }
 
-/*
+
 int main(){
     Grafo grafo;
 
     inicializar(&grafo);
+    adicionarVert(&grafo);
+    adicionarVert(&grafo);
+    adicionarAresta(&grafo,0,1);
+    adicionarAresta(&grafo,1,2);
     imprimirGrafo(&grafo);
 
     return 0;
 }
-*/
