@@ -31,7 +31,7 @@ void servicos(){
     case 3:
         startHash();
     case 4:
-        //grafo
+        //startGrafh();
     case 5:
         recursion();
     case 6:

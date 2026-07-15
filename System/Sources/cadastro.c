@@ -16,11 +16,9 @@ cadastro cad;
 
    
 void cadastrocliente(){
-       
-  printf("\n");
-  printf(" Bem Vindo!! Vamos realizar seu cadastro");
-  printf("\n");
+  printf("\n\nVamos realizar seu cadastro\n\n");
   
+  getchar();
   printf("Nome: ");
   fgets(cliente.nome, 100, stdin);
   printf("\n");

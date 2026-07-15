@@ -1,15 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "grafh.h"
 
-#define QTD_vertice 4
+Grafo * g;
 
-typedef struct {
-    int matriz[QTD_vertice][QTD_vertice];
-    int numVertice;
-} Grafo;
-
-void inicializar(Grafo * g){
+void inicializarGrafo(Grafo * g){
     g-> numVertice =0;
     for(int i = 0 ; i < QTD_vertice ; i++){
         for(int j = 0; j < QTD_vertice ; j++){
@@ -59,7 +55,7 @@ void imprimirGrafo(Grafo * g){
 }
 
 
-int main(){
+void startGrafh(){
     Grafo grafo;
 
     inicializar(&grafo);
@@ -69,5 +65,5 @@ int main(){
     adicionarAresta(&grafo,1,2);
     imprimirGrafo(&grafo);
 
-    return 0;
+    return;
 }
